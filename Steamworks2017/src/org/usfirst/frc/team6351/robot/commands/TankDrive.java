@@ -11,8 +11,7 @@ import org.usfirst.frc.team6351.robot.RobotMap;
  */
 
 /**
- * Rundle College Team 6351, 2016
- * Code for Prototype Robot
+ * Rundle College Team 6351, 2017 Season
  * Programmed in Java by Davis Carlson and Max Gilmour
  * 
  */

@@ -6,8 +6,11 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Rundle College Team 6351, 2017 Season
+ * Programmed in Java by Davis Carlson and Max Gilmour
+ * 
  */
+
 public class AutoDriveStraight extends Command {
 
 	double spd, tme;

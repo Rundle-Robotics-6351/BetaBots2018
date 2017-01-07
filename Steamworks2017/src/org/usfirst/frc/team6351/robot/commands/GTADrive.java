@@ -7,8 +7,11 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- *
+ * Rundle College Team 6351, 2017 Season
+ * Programmed in Java by Davis Carlson and Max Gilmour
+ * 
  */
+
 public class GTADrive extends Command {
 
     public GTADrive() {
