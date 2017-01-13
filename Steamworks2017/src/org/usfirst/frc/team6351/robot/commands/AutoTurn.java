@@ -31,13 +31,13 @@ public class AutoTurn extends Command {
     	newAngle = currentAngle + angleChange;
     	
     	if (newAngle >= 360) {
-    		newAngle = newAngle - 360;
+    		//newAngle = newAngle - 360;
     	}
     	
-    	if (newAngle > currentAngle){
+    	if (newAngle < currentAngle){
     		Robot.driveTrain.setLeft(RobotMap.Drive_Scaling_Auto*(-1));
     		Robot.driveTrain.setRight(RobotMap.Drive_Scaling_Auto*(-1));
-    	} else if (newAngle < currentAngle) {
+    	} else if (newAngle > currentAngle) {
     		Robot.driveTrain.setLeft(RobotMap.Drive_Scaling_Auto);
     		Robot.driveTrain.setRight(RobotMap.Drive_Scaling_Auto);
     	}

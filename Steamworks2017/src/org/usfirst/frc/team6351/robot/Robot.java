@@ -45,7 +45,7 @@ public class Robot extends IterativeRobot {
 
     Command autonomousStart;
     Command teleopStart;
-    SendableChooser autoMode;
+    SendableChooser<Command> autoMode;
     
 	double centerXContour;
 	public static double centerX;
@@ -73,7 +73,7 @@ public class Robot extends IterativeRobot {
 //        });
         
 		oi = new OI();
-		autoMode = new SendableChooser();
+		autoMode = new SendableChooser<Command>();
 		autoMode.addDefault("Auto: ForwardSpinReturn", new AutoFwdSpinComeBack());
 		autoMode.addObject("Auto: Follow GRIP Contour (Shape)", new AutoFollowContour());
 		autoMode.addObject("Auto: TEST MODE", new AutoTestMovement());
