@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team6351.robot.commands.ActivateBothCylinders;
-import org.usfirst.frc.team6351.robot.commands.PrecisionGTADrive;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -34,8 +33,6 @@ public class OI {
 		//driverB.whenPressed(new RetractPiston());
 		driverA.whenPressed(new ActivateBothCylinders(true, true));
 		driverB.whenPressed(new ActivateBothCylinders(false, false));
-		
-		driverLeftBumper.toggleWhenPressed(new PrecisionGTADrive());
 		
 	}
 	//Method for getting an axis value on the driver joystick
