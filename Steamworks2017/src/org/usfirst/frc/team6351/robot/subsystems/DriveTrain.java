@@ -3,9 +3,8 @@ package org.usfirst.frc.team6351.robot.subsystems;
 
 import org.usfirst.frc.team6351.robot.RobotMap;
 import org.usfirst.frc.team6351.robot.commands.GTADrive;
-import org.usfirst.frc.team6351.robot.commands.TankDrive;
 
-import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -24,11 +23,11 @@ public class DriveTrain extends Subsystem {
     // here. Call these from Commands.
 	
 	//Left Motors
-    Victor frontLeft = new Victor(RobotMap.Motor_Front_Left);
-    Victor backLeft = new Victor(RobotMap.Motor_Back_Left);
+    VictorSP frontLeft = new VictorSP(RobotMap.Motor_Front_Left);
+    VictorSP backLeft = new VictorSP(RobotMap.Motor_Back_Left);
     //Right Motors
-    Victor frontRight = new Victor(RobotMap.Motor_Front_Right);
-    Victor backRight = new Victor(RobotMap.Motor_Back_Right);
+    VictorSP frontRight = new VictorSP(RobotMap.Motor_Front_Right);
+    VictorSP backRight = new VictorSP(RobotMap.Motor_Back_Right);
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
