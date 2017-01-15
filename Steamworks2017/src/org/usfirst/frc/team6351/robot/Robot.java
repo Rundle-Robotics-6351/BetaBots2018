@@ -59,18 +59,18 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
     	precisionActive = false;
-//    	
-//    	UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-//        camera.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
-//        
-//        VisionThread vision = new VisionThread(camera, new GRIPblueBox(), pipeline -> {
-//            if (!pipeline.filterContoursOutput().isEmpty()) {
-//                Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
-//                synchronized (imgLock) {
-//                	centerXContour = r.x + (r.width / 2);
-//                }
-//            }
-//        });
+    	
+    	UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+        camera.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
+        
+        VisionThread vision = new VisionThread(camera, new GRIPblueBox(), pipeline -> {
+            if (!pipeline.filterContoursOutput().isEmpty()) {
+                Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
+                synchronized (imgLock) {
+                	centerXContour = r.x + (r.width / 2);
+                }
+            }
+        });
         
 		oi = new OI();
 		autoMode = new SendableChooser<Command>();
