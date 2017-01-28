@@ -19,6 +19,7 @@ import org.usfirst.frc.team6351.robot.commands.ActivateBothCylinders;
 
 public class OI {
 	public Joystick driver1 = new Joystick(0);
+	public Joystick driver2 = new Joystick(2);
 	public Joystick flightstick1 = new Joystick(1);
 	
 	public Button driverA = new JoystickButton(driver1, RobotMap.Controller1_A_Button);
@@ -35,9 +36,19 @@ public class OI {
 
 	}
 	//Method for getting an axis value on the driver joystick
-		public double driverAxisValue (int axis) {
+		public double controller1AxisValue (int axis) {
 			
 			return driver1.getRawAxis(axis);
+			
+		}
+		public double controller2AxisValue (int axis) {
+			
+			return driver2.getRawAxis(axis);
+			
+		}
+		public double joystickAxisValue (int axis) {
+			
+			return flightstick1.getRawAxis(axis);
 			
 		}
     //// CREATING BUTTONS
