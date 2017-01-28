@@ -33,9 +33,6 @@ public class OI {
 	
 	public OI() {
 
-		driverA.whenPressed(new ActivateBothCylinders(true, true));
-		driverB.whenPressed(new ActivateBothCylinders(false, false));
-
 	}
 	//Method for getting an axis value on the driver joystick
 		public double driverAxisValue (int axis) {
