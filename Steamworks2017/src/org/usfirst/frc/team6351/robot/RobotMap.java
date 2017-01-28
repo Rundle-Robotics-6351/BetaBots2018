@@ -34,6 +34,9 @@ public class RobotMap {
 	public static final int Motor_Front_Right = 3;
 	public static final int Motor_Back_Right = 4;
 	
+	public static final int Spark_Controller_1 = 5;
+	public static final int Spark_Controller_2 = 6;
+	
 	public static final int Solenoid_1 = 4;
 	public static final int Solenoid_2 = 3;
 
