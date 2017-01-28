@@ -57,8 +57,8 @@ public class RobotMap {
 	public static final double TELEOP_MAX_ROBOT_SPEED = 0.99;
 	public static final double TELEOP_MIN_ROBOT_SPEED = -0.99;
 	
-	public static final int IMG_WIDTH = 640;
-	public static final int IMG_HEIGHT = 480;
+	public static final int IMG_WIDTH = 320;
+	public static final int IMG_HEIGHT = 240;
 	
 	//LogitechJoystick
 	
