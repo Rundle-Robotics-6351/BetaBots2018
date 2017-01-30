@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 import java.io.Console;
 
@@ -55,11 +56,14 @@ public class Robot extends IterativeRobot {
     Command teleopStart;
     SendableChooser<Command> autoMode;
     
-	double centerXContour;
-	public static double centerX;
+    private VisionThread visionThread;
+	public static double centerXContour;
+	public static double centerYContour;
 	Object imgLock = new Object();
 	
 	public static boolean precisionActive;
+	
+	NetworkTable GRIPContourReport;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -68,6 +72,8 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     	precisionActive = false;
     	
+    	GRIPContourReport = NetworkTable.getTable("GRIP/ntPinkPaper");
+    	
     	UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
         camera.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
         CvSource source = CameraServer.getInstance().putVideo("Test1", 320, 240);
@@ -75,17 +81,18 @@ public class Robot extends IterativeRobot {
         server.setSource(source);
         
         
-        VisionThread vision = new VisionThread(camera, new GRIPpinkPaper(), pipeline -> {
-            if (!pipeline.filterContoursOutput().isEmpty()) {
-                Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
-                synchronized (imgLock) {
-                	centerXContour = r.x + (r.width / 2);
-                }
-            } else {
-            	DriverStation.reportError("No Contours", false);
-            }
-        });
-        
+//        visionThread = new VisionThread(camera, new GRIPpinkPaper(), pipeline -> {
+//            if (!pipeline.filterContoursOutput().isEmpty()) {
+//                Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
+//                synchronized (imgLock) {
+//                	centerXContour = r.x + (r.width / 2);
+//                }
+//            } else {
+//            	DriverStation.reportError("No Contours", false);
+//            }
+//            
+//        });
+//        visionThread.start();
 		oi = new OI();
 		autoMode = new SendableChooser<Command>();
 		autoMode.addObject("Auto: ForwardSpinReturn", new AutoFwdSpinComeBack());
@@ -142,13 +149,14 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-
-    	synchronized (imgLock) {
-    		centerX = this.centerXContour;
-    		SmartDashboard.putNumber("AUTO TEXT GRIP X", centerX);
-    	}
-    	
         Scheduler.getInstance().run();
+//        synchronized (imgLock) {
+//    		centerX = this.centerXContour;
+//    		
+//    	}
+        getGRIP();
+        SmartDashboard.putNumber("AUTO TEXT GRIP X", Robot.centerXContour);
+        System.out.print(Robot.centerXContour);
     }
 
     public void teleopInit() {
@@ -189,36 +197,40 @@ public class Robot extends IterativeRobot {
         LiveWindow.run();
     }
     
-//    public void getGRIP() {
-//    	
-//    	double[] yValue = new double[0];
-//    	double[] xValue = new double[0];
-//    	double[] widthValue = new double[0];
-//    	
-//    	int widthPos = 0;
-//    	double[] dataArrayY = GRIPContourReport.getNumberArray("centerY", yValue);
-//    	double[] dataArrayX = GRIPContourReport.getNumberArray("centerX", xValue);
-//    	double[] dataArrayWidth = GRIPContourReport.getNumberArray("width", widthValue);
-//    	
-//    	for(int i = 0; i < dataArrayWidth.length; i++){
-//    		if(dataArrayWidth[i] > dataArrayWidth[widthPos]){
-//    			widthPos = i;
-//    		}
-//    	}
-//    	//single double
-//        if (dataArrayY.length > widthPos) {	
-//    		centerYContour = dataArrayY[widthPos];
-//        }
-//    	//single double
-//        if (dataArrayX.length > widthPos){
-//        	centerXContour = dataArrayX[widthPos];
-//        }
-//    		
-//		//Showing the value of centerY on the smart dashboard
-//		SmartDashboard.putNumber("The value of centerY is ", centerYContour);
-//		
-//		//Showing the value of centerX on the smart dashboard
-//		SmartDashboard.putNumber("The value of centerX is ", centerXContour);
-//    }
+    public void getGRIP() {
+    	//DriverStation.reportWarning("GRIP RUNNING", false);
+    	double[] yValue = new double[0];
+    	double[] xValue = new double[0];
+    	double[] widthValue = new double[0];
+    	
+    	int widthPos = 0;
+    	double[] dataArrayY = GRIPContourReport.getNumberArray("centerY", yValue);
+    	double[] dataArrayX = GRIPContourReport.getNumberArray("centerX", xValue);
+    	double[] dataArrayWidth = GRIPContourReport.getNumberArray("width", widthValue);
+    	//System.out.print(dataArrayX.length);
+    	for(int i = 0; i < dataArrayWidth.length; i++){
+    		if(dataArrayWidth[i] > dataArrayWidth[widthPos]){
+    			widthPos = i;
+    		}
+    	}
+    	//single double
+        if (dataArrayY.length > widthPos) {	
+    		centerYContour = dataArrayY[widthPos];
+        }
+    	//single double
+        if (dataArrayX.length > widthPos){
+        	centerXContour = dataArrayX[widthPos];
+        }
+        if (dataArrayX.length == 0) {
+        	centerXContour = 0.0;
+        }
+        //System.out.print(Robot.centerXContour);
+		//Showing the value of centerY on the smart dashboard
+		//SmartDashboard.putNumber("The value of centerY is ", Robot.centerYContour);
+		
+		//Showing the value of centerX on the smart dashboard
+		//SmartDashboard.putNumber("The value of centerX is ", Robot.centerXContour);
+        SmartDashboard.
+    }
 
 }
