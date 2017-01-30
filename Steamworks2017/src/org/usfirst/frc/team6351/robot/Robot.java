@@ -5,16 +5,21 @@ import edu.wpi.cscore.CvSource;
 import edu.wpi.cscore.MjpegServer;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+
+import java.io.Console;
+
 import org.opencv.core.Rect;
 import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team6351.robot.commands.AutoFollowContour;
 import org.usfirst.frc.team6351.robot.commands.AutoFwdSpinComeBack;
 import org.usfirst.frc.team6351.robot.commands.AutoTestMovement;
 import org.usfirst.frc.team6351.robot.commands.AutoTurn;
+import org.usfirst.frc.team6351.robot.commands.AutoDoNotMove;
 import org.usfirst.frc.team6351.robot.commands.GTADrive;
 import org.usfirst.frc.team6351.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team6351.robot.subsystems.Pneumatics;
@@ -65,28 +70,32 @@ public class Robot extends IterativeRobot {
     	
     	UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
         camera.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
-//        CvSource source = CameraServer.getInstance().putVideo("Test1", 320, 240);
-//        MjpegServer server = new MjpegServer("Test1", 0);
-//        server.setSource(source);
+        CvSource source = CameraServer.getInstance().putVideo("Test1", 320, 240);
+        MjpegServer server = new MjpegServer("Test1", 0);
+        server.setSource(source);
         
         
-//        VisionThread vision = new VisionThread(camera, new GRIPblueBox(), pipeline -> {
-//            if (!pipeline.filterContoursOutput().isEmpty()) {
-//                Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
-//                synchronized (imgLock) {
-//                	centerXContour = r.x + (r.width / 2);
-//                }
-//            }
-//        });
+        VisionThread vision = new VisionThread(camera, new GRIPpinkPaper(), pipeline -> {
+            if (!pipeline.filterContoursOutput().isEmpty()) {
+                Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
+                synchronized (imgLock) {
+                	centerXContour = r.x + (r.width / 2);
+                }
+            } else {
+            	DriverStation.reportError("No Contours", false);
+            }
+        });
         
 		oi = new OI();
 		autoMode = new SendableChooser<Command>();
 		autoMode.addObject("Auto: ForwardSpinReturn", new AutoFwdSpinComeBack());
-		autoMode.addDefault("Auto: Turn 90", new AutoTurn(90));
+		autoMode.addObject("Auto: Turn 90", new AutoTurn(90));
 		autoMode.addObject("Auto: Follow GRIP Contour (Shape)", new AutoFollowContour());
-		autoMode.addObject("Auto: TEST MODE", new AutoTestMovement());
+		autoMode.addDefault("Auto: DO NOT MOVE", new AutoDoNotMove());
         SmartDashboard.putData("Auto mode", autoMode);
         pneumatics.start();
+        
+        
     }
 	
 	/**
@@ -136,6 +145,7 @@ public class Robot extends IterativeRobot {
 
     	synchronized (imgLock) {
     		centerX = this.centerXContour;
+    		SmartDashboard.putNumber("AUTO TEXT GRIP X", centerX);
     	}
     	
         Scheduler.getInstance().run();
