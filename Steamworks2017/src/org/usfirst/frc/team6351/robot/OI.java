@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team6351.robot.commands.ActivateBothCylinders;
+import org.usfirst.frc.team6351.robot.commands.InvertFrontBack;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -29,11 +30,14 @@ public class OI {
 	
 	public Button driverLeftBumper = new JoystickButton(driver1, RobotMap.Controller1_Left_Bumper);
 	
+	public Button joystick3 = new JoystickButton(flightstick1, RobotMap.Joy_Button_3);
 	public Button joystick11 = new JoystickButton(flightstick1, RobotMap.Joy_Button_11);
 	public Button joystick12 = new JoystickButton(flightstick1, RobotMap.Joy_Button_12);
 	
 	public OI() {
 
+		joystick3.toggleWhenPressed(new InvertFrontBack());
+		
 	}
 	//Method for getting an axis value on the driver joystick
 		public double controller1AxisValue (int axis) {

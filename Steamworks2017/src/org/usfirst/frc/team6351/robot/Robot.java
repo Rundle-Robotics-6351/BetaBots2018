@@ -55,30 +55,33 @@ public class Robot extends IterativeRobot {
     Command autonomousStart;
     Command teleopStart;
     SendableChooser<Command> autoMode;
-    
-    private VisionThread visionThread;
+
 	public static double centerXContour;
 	public static double centerYContour;
-	Object imgLock = new Object();
+	NetworkTable GRIPContourReport;
 	
 	public static boolean precisionActive;
+	public static boolean cameraDriveInverted;
 	
-	NetworkTable GRIPContourReport;
+	
 
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
+	
     public void robotInit() {
     	precisionActive = false;
+    	cameraDriveInverted = false;
     	
     	GRIPContourReport = NetworkTable.getTable("GRIP/ntPinkPaper");
     	
-    	UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+    	UsbCamera camera = CameraServer.getInstance().startAutomaticCapture(0);
         camera.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
-        CvSource source = CameraServer.getInstance().putVideo("Test1", 320, 240);
-        MjpegServer server = new MjpegServer("Test1", 0);
-        server.setSource(source);
+        
+//        CvSource source = CameraServer.getInstance().putVideo("Test1", 320, 240);
+//        MjpegServer server = new MjpegServer("Test1", 0);
+//        server.setSource(source);
         
         
 //        visionThread = new VisionThread(camera, new GRIPpinkPaper(), pipeline -> {
@@ -230,7 +233,6 @@ public class Robot extends IterativeRobot {
 		
 		//Showing the value of centerX on the smart dashboard
 		//SmartDashboard.putNumber("The value of centerX is ", Robot.centerXContour);
-        SmartDashboard.
     }
 
 }

@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team6351.robot.subsystems;
 
+import org.usfirst.frc.team6351.robot.Robot;
 import org.usfirst.frc.team6351.robot.RobotMap;
 import org.usfirst.frc.team6351.robot.commands.GTADrive;
 
@@ -34,13 +35,23 @@ public class DriveTrain extends Subsystem {
         setDefaultCommand(new GTADrive());
     }
     public void setLeft (double speed) {
-    	frontLeft.set(speed);
-    	backLeft.set(speed);
-    	
+    	if (Robot.cameraDriveInverted == true) {
+    		frontLeft.set(speed*-1);
+        	backLeft.set(speed*-1);
+    	} else {
+    		frontLeft.set(speed);
+    		backLeft.set(speed);
+    	}
+
     }
     public void setRight (double speed) {
-    	frontRight.set(speed);
-    	backRight.set(speed);
+    	if (Robot.cameraDriveInverted == true) {
+    		frontRight.set(speed*-1);
+        	backRight.set(speed*-1);
+    	} else {
+    		frontRight.set(speed);
+    		backRight.set(speed);
+    	}
     	
     }
 }
