@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team6351.robot.commands.ActivateBothCylinders;
-import org.usfirst.frc.team6351.robot.commands.ActivateSparkTest;
+import org.usfirst.frc.team6351.robot.commands.ActivateBallCollector;
 import org.usfirst.frc.team6351.robot.commands.InvertFrontBack;
 
 /**
@@ -38,7 +38,7 @@ public class OI {
 	public OI() {
 
 		joystick3.toggleWhenPressed(new InvertFrontBack());
-		joystick11.toggleWhenPressed(new ActivateSparkTest());
+		joystick11.toggleWhenPressed(new ActivateBallCollector());
 		
 	}
 	//Method for getting an axis value on the driver joystick
