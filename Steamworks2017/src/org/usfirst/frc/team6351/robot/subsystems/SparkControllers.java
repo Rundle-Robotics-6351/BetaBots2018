@@ -14,13 +14,13 @@ public class SparkControllers extends Subsystem {
     // here. Call these from Commands.
 
 	Spark spinner = new Spark(RobotMap.Spark_Controller_Spinner);
-	Spark controller2 = new Spark(RobotMap.Spark_Controller_2);
+	Spark shooter = new Spark(RobotMap.Spark_Controller_Shooter);
 	
-	public void setSpinner(double speed) {
+	public void setBallCollector(double speed) {
 		spinner.set(speed);
 	}
-	public void setController2(double speed) {
-		controller2.set(speed);
+	public void setShooter(double speed) {
+		shooter.set(speed);
 	}
 	
     public void initDefaultCommand() {
