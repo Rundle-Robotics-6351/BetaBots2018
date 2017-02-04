@@ -68,6 +68,7 @@ public class Robot extends IterativeRobot {
 	
 	public static UsbCamera usbCamera1;
 	public static UsbCamera usbCamera2;
+	public static MjpegServer mjpegServer1;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -84,8 +85,12 @@ public class Robot extends IterativeRobot {
 //      camera.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
         usbCamera1 = new UsbCamera("USB Camera 0", 0);
         usbCamera2 = new UsbCamera("USB Camera 1", 1);
-        MjpegServer mjpegServer1 = new MjpegServer("serve_USB Camera 0", 1181);
+        usbCamera1.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
+        usbCamera2.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
+        mjpegServer1 = new MjpegServer("serve_USB Camera 0", 1181);
         mjpegServer1.setSource(usbCamera1);
+//        MjpegServer mjpegServer2 = new MjpegServer("serve_USB Camera 1", 1182);
+//        mjpegServer2.setSource(usbCamera2);
 
 //        visionThread = new VisionThread(camera, new GRIPpinkPaper(), pipeline -> {
 //            if (!pipeline.filterContoursOutput().isEmpty()) {
