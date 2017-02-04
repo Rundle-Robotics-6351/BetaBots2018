@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team6351.robot;
 
+import edu.wpi.cscore.CvSink;
 import edu.wpi.cscore.CvSource;
 import edu.wpi.cscore.MjpegServer;
 import edu.wpi.cscore.UsbCamera;
@@ -65,7 +66,8 @@ public class Robot extends IterativeRobot {
 	public static boolean precisionActive;
 	public static boolean cameraDriveInverted;
 	
-	
+	public static UsbCamera usbCamera1;
+	public static UsbCamera usbCamera2;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -75,17 +77,16 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     	precisionActive = false;
     	cameraDriveInverted = false;
-    	
+
     	GRIPContourReport = NetworkTable.getTable("GRIP/ntPinkPaper");
-    	
-    	UsbCamera camera = CameraServer.getInstance().startAutomaticCapture(0);
-        camera.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
-        
-//        CvSource source = CameraServer.getInstance().putVideo("Test1", 320, 240);
-//        MjpegServer server = new MjpegServer("Test1", 0);
-//        server.setSource(source);
-        
-        
+
+//    	UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+//      camera.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
+        usbCamera1 = new UsbCamera("USB Camera 0", 0);
+        usbCamera2 = new UsbCamera("USB Camera 1", 1);
+        MjpegServer mjpegServer1 = new MjpegServer("serve_USB Camera 0", 1181);
+        mjpegServer1.setSource(usbCamera1);
+
 //        visionThread = new VisionThread(camera, new GRIPpinkPaper(), pipeline -> {
 //            if (!pipeline.filterContoursOutput().isEmpty()) {
 //                Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
@@ -98,6 +99,8 @@ public class Robot extends IterativeRobot {
 //            
 //        });
 //        visionThread.start();
+        
+
 		oi = new OI();
 		autoMode = new SendableChooser<Command>();
 		autoMode.addObject("Auto: ForwardSpinReturn", new AutoFwdSpinComeBack());
@@ -105,7 +108,7 @@ public class Robot extends IterativeRobot {
 		autoMode.addObject("Auto: Follow GRIP Contour (Shape)", new AutoFollowContour());
 		autoMode.addDefault("Auto: DO NOT MOVE", new AutoDoNotMove());
         SmartDashboard.putData("Auto mode", autoMode);
-        pneumatics.start();
+        //pneumatics.start();
         
         
     }
