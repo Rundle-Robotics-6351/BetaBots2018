@@ -32,6 +32,7 @@ public class OI {
 	
 	public Button driverLeftBumper = new JoystickButton(driver1, RobotMap.Controller1_Left_Bumper);
 	
+	public Button joystick1 = new JoystickButton(flightstick1, RobotMap.Joy_Button_1);
 	public Button joystick3 = new JoystickButton(flightstick1, RobotMap.Joy_Button_3);
 	public Button joystick11 = new JoystickButton(flightstick1, RobotMap.Joy_Button_11);
 	public Button joystick10 = new JoystickButton(flightstick1, RobotMap.Joy_Button_10);
@@ -40,7 +41,7 @@ public class OI {
 	public OI() {
 
 		joystick3.toggleWhenPressed(new InvertFrontBack());
-		joystick10.toggleWhenPressed(new ActivateShooter());
+		joystick1.whileHeld(new ActivateShooter());
 		joystick11.toggleWhenPressed(new ActivateBallCollector());
 		
 	}
