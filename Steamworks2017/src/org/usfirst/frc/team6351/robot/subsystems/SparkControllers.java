@@ -15,12 +15,16 @@ public class SparkControllers extends Subsystem {
 
 	Spark spinner = new Spark(RobotMap.Spark_Controller_Spinner);
 	Spark shooter = new Spark(RobotMap.Spark_Controller_Shooter);
+	Spark mixer = new Spark(RobotMap.Spark_Controller_HopperMixer);
 	
 	public void setBallCollector(double speed) {
 		spinner.set(speed);
 	}
 	public void setShooter(double speed) {
 		shooter.set(speed);
+	}
+	public void setMixer(double speed) {
+		mixer.set(speed);
 	}
 	
     public void initDefaultCommand() {
