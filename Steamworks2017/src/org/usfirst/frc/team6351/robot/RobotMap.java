@@ -36,6 +36,7 @@ public class RobotMap {
 	
 	public static final int Spark_Controller_Spinner = 9;
 	public static final int Spark_Controller_Shooter = 8;
+	public static final int Spark_Controller_HopperMixer = 7;
 	
 	public static final int Solenoid_1 = 4;
 	public static final int Solenoid_2 = 3;

@@ -18,6 +18,7 @@ public class ActivateShooter extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.sparks.setShooter(-1.0);
+    	Robot.sparks.setMixer(-1.0);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -32,11 +33,13 @@ public class ActivateShooter extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.sparks.setShooter(0.0);
+    	Robot.sparks.setMixer(0.0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
     	Robot.sparks.setShooter(0.0);
+    	Robot.sparks.setMixer(0.0);
     }
 }

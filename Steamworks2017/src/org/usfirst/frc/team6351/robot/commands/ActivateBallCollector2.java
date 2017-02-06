@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ActivateBallCollector extends Command {
+public class ActivateBallCollector2 extends Command {
 
-    public ActivateBallCollector() {
+    public ActivateBallCollector2() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.sparks);
