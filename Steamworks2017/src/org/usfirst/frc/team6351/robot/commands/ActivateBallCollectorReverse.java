@@ -8,9 +8,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ActivateBallCollector extends Command {
+public class ActivateBallCollectorReverse extends Command {
 
-    public ActivateBallCollector() {
+    public ActivateBallCollectorReverse() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.sparks);
@@ -18,8 +18,7 @@ public class ActivateBallCollector extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.sparks.setBallCollector(0.8);
-    	
+    	Robot.sparks.setBallCollector(-0.8);
     }
 
     // Called repeatedly when this Command is scheduled to run
