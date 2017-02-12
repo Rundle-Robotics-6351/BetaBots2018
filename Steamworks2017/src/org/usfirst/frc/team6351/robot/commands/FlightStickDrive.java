@@ -23,11 +23,25 @@ public class FlightStickDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double joystickX = Robot.oi.joystickAxisValue(RobotMap.Joy_X_Axis);
-    	double joystickY = Robot.oi.joystickAxisValue(RobotMap.Joy_Z_Axis);
+    	double joystickZ = Robot.oi.joystickAxisValue(RobotMap.Joy_Z_Axis);
+    	double joystickY = Robot.oi.joystickAxisValue(RobotMap.Joy_Y_Axis);
+    	double joystickThottle = Robot.oi.joystickAxisValue(RobotMap.Joy_Throttle);
     	
-    	double leftMotors = (joystickY - joystickX)*RobotMap.GTA_Drive_Scaling_Teleop;
-    	double rightMotors = (joystickY + joystickX)*RobotMap.GTA_Drive_Scaling_Teleop*(-1);
+    	double speedMultiplier = 0.0;
+    	
+    	if (joystickThottle < 0) {
+    		speedMultiplier = (0.5-(joystickThottle * -0.5));
+    	}
+    	if (joystickThottle > 0) {
+    		speedMultiplier = (0.5+(joystickThottle * 0.5));
+    	}
+    	if (joystickThottle == 0) {
+    		speedMultiplier = 0.5;
+    	}
+    	
+    	
+    	double leftMotors = (joystickY - joystickZ)*RobotMap.GTA_Drive_Scaling_Teleop;
+    	double rightMotors = (joystickY + joystickZ)*RobotMap.GTA_Drive_Scaling_Teleop*speedMultiplier;
     	
     	if (leftMotors > RobotMap.TELEOP_MAX_ROBOT_SPEED) {
  		   

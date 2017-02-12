@@ -69,6 +69,7 @@ public class RobotMap {
 	public static final int Joy_Y_Axis = 1;
 	public static final int Joy_Z_Axis = 2;
 	public static final int Joy_X_Axis = 0;
+	public static final int Joy_Throttle = 3;
 	
 	public static final int Joy_Button_10 = 10;
 	public static final int Joy_Button_11 = 11;
