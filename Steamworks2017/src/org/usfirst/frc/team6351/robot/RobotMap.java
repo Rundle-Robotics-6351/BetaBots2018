@@ -67,6 +67,7 @@ public class RobotMap {
 	//LogitechJoystick
 	
 	public static final int Joy_Y_Axis = 1;
+	public static final int Joy_Z_Axis = 2;
 	public static final int Joy_X_Axis = 0;
 	
 	public static final int Joy_Button_10 = 10;
