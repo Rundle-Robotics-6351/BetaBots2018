@@ -26,8 +26,8 @@ public class FlightStickDrive extends Command {
     	double joystickX = Robot.oi.joystickAxisValue(RobotMap.Joy_X_Axis);
     	double joystickY = Robot.oi.joystickAxisValue(RobotMap.Joy_Y_Axis);
     	
-    	double leftMotors = (joystickY - joystickX)*RobotMap.GTA_Drive_Scaling_Teleop*(-1);
-    	double rightMotors = (joystickY + joystickX)*RobotMap.GTA_Drive_Scaling_Teleop;
+    	double leftMotors = (joystickY - joystickX)*RobotMap.GTA_Drive_Scaling_Teleop;
+    	double rightMotors = (joystickY + joystickX)*RobotMap.GTA_Drive_Scaling_Teleop*(-1);
     	
     	if (leftMotors > RobotMap.TELEOP_MAX_ROBOT_SPEED) {
  		   

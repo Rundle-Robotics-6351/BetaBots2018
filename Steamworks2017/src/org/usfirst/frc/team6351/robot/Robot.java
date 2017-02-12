@@ -21,6 +21,7 @@ import org.usfirst.frc.team6351.robot.commands.AutoFollowContour;
 import org.usfirst.frc.team6351.robot.commands.AutoFwdSpinComeBack;
 import org.usfirst.frc.team6351.robot.commands.AutoTestMovement;
 import org.usfirst.frc.team6351.robot.commands.AutoTurn;
+import org.usfirst.frc.team6351.robot.commands.FlightStickDrive;
 import org.usfirst.frc.team6351.robot.commands.AutoDoNotMove;
 import org.usfirst.frc.team6351.robot.commands.GTADrive;
 import org.usfirst.frc.team6351.robot.subsystems.DriveTrain;
@@ -179,7 +180,7 @@ public class Robot extends IterativeRobot {
         // this line or comment it out.
         if (autonomousStart != null) autonomousStart.cancel();
         
-        teleopStart = new GTADrive(); 
+        teleopStart = new FlightStickDrive(); 
         teleopStart.start();
     }
 
@@ -200,6 +201,7 @@ public class Robot extends IterativeRobot {
         
         
         SmartDashboard.putNumber("GyroAngle", sensors.getGyroAngle());
+        SmartDashboard.putBoolean("INVERTED!", cameraDriveInverted);
         
     }
     
