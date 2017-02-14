@@ -32,6 +32,7 @@ public class OI {
 	public Button driverY = new JoystickButton(driver1, RobotMap.Controller1_Y_Button);
 	
 	public Button driverLeftBumper = new JoystickButton(driver1, RobotMap.Controller1_Left_Bumper);
+	public Button driverRightBumper = new JoystickButton(driver1, RobotMap.Controller1_Right_Bumper);
 	
 	public Button joystick1 = new JoystickButton(flightstick1, RobotMap.Joy_Button_1);
 	public Button joystick3 = new JoystickButton(flightstick1, RobotMap.Joy_Button_3);
@@ -45,6 +46,10 @@ public class OI {
 		joystick1.whileHeld(new ActivateShooter());
 		joystick11.toggleWhenPressed(new ActivateBallCollector());
 		joystick12.toggleWhenPressed(new ActivateBallCollectorReverse());
+		driverLeftBumper.toggleWhenPressed(new InvertFrontBack());
+		driverRightBumper.whileHeld(new ActivateShooter());
+		driverA.toggleWhenPressed(new ActivateBallCollector());
+		driverB.toggleWhenPressed(new ActivateBallCollectorReverse());
 		
 	}
 	//Method for getting an axis value on the driver joystick

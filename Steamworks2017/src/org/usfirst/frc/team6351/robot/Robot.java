@@ -88,6 +88,7 @@ public class Robot extends IterativeRobot {
         usbCamera2 = new UsbCamera("USB Camera 1", 1);
         usbCamera1.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
         usbCamera2.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
+        
         mjpegServer1 = new MjpegServer("serve_USB Camera 0", 1181);
         mjpegServer1.setSource(usbCamera1);
 //        MjpegServer mjpegServer2 = new MjpegServer("serve_USB Camera 1", 1182);
@@ -112,6 +113,9 @@ public class Robot extends IterativeRobot {
 		autoMode.addObject("Auto: ForwardSpinReturn", new AutoFwdSpinComeBack());
 		autoMode.addObject("Auto: Turn 90", new AutoTurn(90));
 		autoMode.addObject("Auto: Follow GRIP Contour (Shape)", new AutoFollowContour());
+		//autoMode.addObject("Auto: Position 1", new AutoFwdSpinComeBack());
+		//autoMode.addObject("Auto: Position 2", new AutoTurn(90));
+		//autoMode.addObject("Auto: Position 3", new AutoFollowContour());
 		autoMode.addDefault("Auto: DO NOT MOVE", new AutoDoNotMove());
         SmartDashboard.putData("Auto mode", autoMode);
         //pneumatics.start();
@@ -171,6 +175,7 @@ public class Robot extends IterativeRobot {
         getGRIP();
         SmartDashboard.putNumber("AUTO TEXT GRIP X", Robot.centerXContour);
         System.out.print(Robot.centerXContour);
+        SmartDashboard.putNumber("GyroAngle", sensors.getGyroAngle());
     }
 
     public void teleopInit() {
