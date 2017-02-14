@@ -27,22 +27,28 @@ public class FlightStickDrive extends Command {
     	double joystickY = Robot.oi.joystickAxisValue(RobotMap.Joy_Y_Axis);
     	double joystickThottle = Robot.oi.joystickAxisValue(RobotMap.Joy_Throttle);
     	
-    	double speedMultiplier = 0.0;
+    	double speedMultiplier;
     	
     	if (joystickThottle < 0) {
     		speedMultiplier = (0.5-(joystickThottle * -0.5));
     	}
-    	if (joystickThottle > 0) {
+    	if (joystickThottle > 0) { 
     		speedMultiplier = (0.5+(joystickThottle * 0.5));
     	}
     	if (joystickThottle == 0) {
     		speedMultiplier = 0.5;
     	}
     	
+    	double leftMotors;
+    	double rightMotors;
     	
-    	double leftMotors = (joystickY - joystickZ)*RobotMap.GTA_Drive_Scaling_Teleop;
-    	double rightMotors = (joystickY + joystickZ)*RobotMap.GTA_Drive_Scaling_Teleop*speedMultiplier;
-    	
+    	if (Robot.cameraDriveInverted == true) {
+    		leftMotors = (joystickY - joystickZ)*RobotMap.GTA_Drive_Scaling_Teleop;
+        	rightMotors = (joystickY + joystickZ)*RobotMap.GTA_Drive_Scaling_Teleop*(-1);
+    	} else {
+    		leftMotors = (joystickY + joystickZ)*RobotMap.GTA_Drive_Scaling_Teleop;
+    		rightMotors = (joystickY - joystickZ)*RobotMap.GTA_Drive_Scaling_Teleop*(-1);
+    	}
     	if (leftMotors > RobotMap.TELEOP_MAX_ROBOT_SPEED) {
  		   
     		leftMotors = RobotMap.TELEOP_MAX_ROBOT_SPEED;
