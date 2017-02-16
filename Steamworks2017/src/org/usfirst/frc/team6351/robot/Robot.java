@@ -18,8 +18,6 @@ import java.io.Console;
 import org.opencv.core.Rect;
 import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team6351.robot.commands.AutoFollowContour;
-import org.usfirst.frc.team6351.robot.commands.AutoFwdSpinComeBack;
-import org.usfirst.frc.team6351.robot.commands.AutoTestMovement;
 import org.usfirst.frc.team6351.robot.commands.AutoTurn;
 import org.usfirst.frc.team6351.robot.commands.FlightStickDrive;
 import org.usfirst.frc.team6351.robot.commands.AutoDoNotMove;
@@ -112,7 +110,6 @@ public class Robot extends IterativeRobot {
 
 		oi = new OI();
 		autoMode = new SendableChooser<Command>();
-		autoMode.addObject("Auto: ForwardSpinReturn", new AutoFwdSpinComeBack());
 		autoMode.addObject("Auto: Turn 90", new AutoTurn(90));
 		autoMode.addObject("Auto: Follow GRIP Contour (Shape)", new AutoFollowContour());
 		//autoMode.addObject("Auto: Position 1", new AutoFwdSpinComeBack());
