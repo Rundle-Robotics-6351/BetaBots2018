@@ -88,8 +88,8 @@ public class Robot extends IterativeRobot {
         usbCamera2 = new UsbCamera("USB Camera 1", 1);
         usbCamera1.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
         usbCamera2.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
-        usbCamera1.setFPS(30);
-        usbCamera2.setFPS(30);
+        usbCamera1.setFPS(20);
+        usbCamera2.setFPS(20);
         
         mjpegServer1 = new MjpegServer("serve_USB Camera 0", 1181);
         mjpegServer1.setSource(usbCamera1);
