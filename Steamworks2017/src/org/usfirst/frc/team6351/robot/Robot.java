@@ -83,8 +83,6 @@ public class Robot extends IterativeRobot {
 
     	GRIPContourReport = NetworkTable.getTable("GRIP/ntPinkPaper");
 
-//    	UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-//      camera.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
         usbCamera1 = new UsbCamera("USB Camera 0", 0);
         usbCamera2 = new UsbCamera("USB Camera 1", 1);
 
@@ -122,7 +120,6 @@ public class Robot extends IterativeRobot {
 		//autoMode.addObject("Auto: Position 3", new AutoFollowContour());
 		autoMode.addDefault("Auto: DO NOT MOVE", new AutoDoNotMove());
         SmartDashboard.putData("Auto mode", autoMode);
-        //pneumatics.start();
         
         
     }
@@ -172,10 +169,7 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
-//        synchronized (imgLock) {
-//    		centerX = this.centerXContour;
-//    		
-//    	}
+
         getGRIP();
         SmartDashboard.putNumber("AUTO TEXT GRIP X", Robot.centerXContour);
         SmartDashboard.putNumber("GyroAngle", sensors.getGyroAngle());
@@ -213,7 +207,6 @@ public class Robot extends IterativeRobot {
     }
     
     public void getGRIP() {
-    	//DriverStation.reportWarning("GRIP RUNNING", false);
     	double[] yValue = new double[0];
     	double[] xValue = new double[0];
     	double[] widthValue = new double[0];
