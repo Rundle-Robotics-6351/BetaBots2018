@@ -45,6 +45,20 @@ public class FlightStickDrive extends Command {
     	if (Robot.cameraDriveInverted == true) {
     		leftMotors = (joystickY - joystickZ)*RobotMap.GTA_Drive_Scaling_Teleop;
         	rightMotors = (joystickY + joystickZ)*RobotMap.GTA_Drive_Scaling_Teleop*(-1);
+        	
+        	if (Robot.oi.flightstick1.getPOV() == 0) {
+    			leftMotors = 0.15;rightMotors = -0.15;
+    		}
+    		if (Robot.oi.flightstick1.getPOV() == 90) {
+    			leftMotors = -0.15;rightMotors = -0.15;
+    		}
+    		if (Robot.oi.flightstick1.getPOV() == 180) {
+    			leftMotors = -0.15;rightMotors = 0.15;
+    		}
+    		if (Robot.oi.flightstick1.getPOV() == 270) {
+    			leftMotors = 0.15;rightMotors = 0.15;
+    		}
+        	
     	} else {
     		leftMotors = (joystickY + joystickZ)*RobotMap.GTA_Drive_Scaling_Teleop;
     		rightMotors = (joystickY - joystickZ)*RobotMap.GTA_Drive_Scaling_Teleop*(-1);
