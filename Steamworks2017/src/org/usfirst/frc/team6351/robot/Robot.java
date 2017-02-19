@@ -85,8 +85,6 @@ public class Robot extends IterativeRobot {
 
     	GRIPContourReport = NetworkTable.getTable("GRIP/ntPinkPaper");
 
-//    	UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-//      camera.setResolution(RobotMap.IMG_WIDTH, RobotMap.IMG_HEIGHT);
         usbCamera1 = new UsbCamera("USB Camera 0", 0);
         usbCamera2 = new UsbCamera("USB Camera 1", 1);
 
@@ -174,10 +172,7 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
-//        synchronized (imgLock) {
-//    		centerX = this.centerXContour;
-//    		
-//    	}
+
         getGRIP();
         SmartDashboard.putNumber("AUTO TEXT GRIP X", Robot.centerXContour);
         System.out.print(Robot.centerXContour);
@@ -200,11 +195,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-//        SmartDashboard.putBoolean("Compressor Enabled", pneumatics.getEnabled());
-//        SmartDashboard.putBoolean("Compressor Not Connected Fault", pneumatics.getConnectionFault());
-//        SmartDashboard.putBoolean("Compressor Current Fault", pneumatics.getCurrentFault());
-//        SmartDashboard.putBoolean("Compressor Shorted Fault", pneumatics.getShortFault());
-        
+
         SmartDashboard.putNumber("Left Joystick Y", oi.driver1.getRawAxis(1));
         SmartDashboard.putNumber("Right Joystick Y", oi.driver1.getRawAxis(3));
         SmartDashboard.putBoolean("Precision Mode Active", precisionActive);
@@ -224,7 +215,6 @@ public class Robot extends IterativeRobot {
     }
     
     public void getGRIP() {
-    	//DriverStation.reportWarning("GRIP RUNNING", false);
     	double[] yValue = new double[0];
     	double[] xValue = new double[0];
     	double[] widthValue = new double[0];
