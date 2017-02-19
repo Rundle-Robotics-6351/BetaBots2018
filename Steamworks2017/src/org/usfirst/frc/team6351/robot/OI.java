@@ -68,6 +68,11 @@ public class OI {
 			return flightstick1.getRawAxis(axis);
 			
 		}
+		public double joystickPOVAngle (int axis) {
+			
+			return flightstick1.getPOV();
+			
+		}
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.
     // You create one by telling it which joystick it's on and which button

@@ -65,8 +65,8 @@ public class RobotMap {
 
 	public static final int MJPEG_WIDTH = 480;
 	public static final int MJPEG_HEIGHT = 320;
-	public static final int BACKUPMJPEG_WIDTH = 240;
-	public static final int BACKUPMJPEG_HEIGHT = 180;
+	public static final int BACKUPMJPEG_WIDTH = 180;
+	public static final int BACKUPMJPEG_HEIGHT = 60;
 	
 	//LogitechJoystick
 	

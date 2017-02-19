@@ -13,12 +13,12 @@ public class EvacuateBallCollector extends Command {
     public EvacuateBallCollector() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.sparks);
+    	requires(Robot.ballintake);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.sparks.setBallCollector(-0.9);
+    	Robot.ballintake.setBallCollector(-0.9);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -32,14 +32,14 @@ public class EvacuateBallCollector extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.sparks.setBallCollector(0.0);
+    	Robot.ballintake.setBallCollector(0.0);
     	Timer.delay(1.0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.sparks.setBallCollector(0.0);
+    	Robot.ballintake.setBallCollector(0.0);
     	Timer.delay(1.0);
     }
 }
