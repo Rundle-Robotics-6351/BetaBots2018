@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class AutoFollowContour extends Command {
 
 	double xPosition;
-	double centerX = 320;
+	double centerX = 240;
 	
     public AutoFollowContour() {
         // Use requires() here to declare subsystem dependencies
@@ -36,19 +36,19 @@ public class AutoFollowContour extends Command {
     	double distance = centerX - xPosition;
     
     	if (xPosition != 0) {
-    		if (distance < 0.0 && distance > -160) {
+    		if (distance < 0.0 && distance > -120) {
         		Robot.driveTrain.setLeft(-0.1);
         		Robot.driveTrain.setRight(-0.1);
         	} 
-        	if (distance < 0.0 && distance < -160) {
+        	if (distance < 0.0 && distance < -120) {
         		Robot.driveTrain.setLeft(-0.3);
         		Robot.driveTrain.setRight(-0.3);
         	}
-        	if (distance > 0.0 && distance < 160) {
+        	if (distance > 0.0 && distance < 120) {
         		Robot.driveTrain.setLeft(0.1);
         		Robot.driveTrain.setRight(0.1);
         	} 
-        	if (distance > 0.0 && distance > 160) {
+        	if (distance > 0.0 && distance > 120) {
         		Robot.driveTrain.setLeft(0.3);
         		Robot.driveTrain.setRight(0.3);
         	}
