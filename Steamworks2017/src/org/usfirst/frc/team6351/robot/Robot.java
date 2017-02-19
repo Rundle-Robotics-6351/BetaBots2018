@@ -176,7 +176,6 @@ public class Robot extends IterativeRobot {
 //    	}
         getGRIP();
         SmartDashboard.putNumber("AUTO TEXT GRIP X", Robot.centerXContour);
-        System.out.print(Robot.centerXContour);
         SmartDashboard.putNumber("GyroAngle", sensors.getGyroAngle());
     }
 
@@ -196,20 +195,12 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-//        SmartDashboard.putBoolean("Compressor Enabled", pneumatics.getEnabled());
-//        SmartDashboard.putBoolean("Compressor Not Connected Fault", pneumatics.getConnectionFault());
-//        SmartDashboard.putBoolean("Compressor Current Fault", pneumatics.getCurrentFault());
-//        SmartDashboard.putBoolean("Compressor Shorted Fault", pneumatics.getShortFault());
-        
-        SmartDashboard.putNumber("Left Joystick Y", oi.driver1.getRawAxis(1));
-        SmartDashboard.putNumber("Right Joystick Y", oi.driver1.getRawAxis(3));
-        SmartDashboard.putBoolean("Precision Mode Active", precisionActive);
-        
-        
-        
+
         SmartDashboard.putNumber("GyroAngle", sensors.getGyroAngle());
         SmartDashboard.putBoolean("INVERTED!", cameraDriveInverted);
         
+        getGRIP();
+        SmartDashboard.putNumber("AUTO TEXT GRIP X", Robot.centerXContour);
     }
     
     /**
