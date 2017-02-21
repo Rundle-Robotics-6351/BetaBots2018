@@ -39,6 +39,8 @@ public class RobotMap {
 	public static final int Spark_Controller_HopperMixer = 7;
 	public static final int Spark_Controller_Climber = 6;
 	
+	public static final int Talon_Controller_LightRing = 5;
+	
 	public static final int Solenoid_1 = 4;
 	public static final int Solenoid_2 = 3;
 
@@ -78,6 +80,7 @@ public class RobotMap {
 	public static final int Joy_Button_10 = 10;
 	public static final int Joy_Button_11 = 11;
 	public static final int Joy_Button_12 = 12;
+	public static final int Joy_Button_7 = 7;
 	public static final int Joy_Button_3 = 3;
 	public static final int Joy_Button_1 = 1;
 }

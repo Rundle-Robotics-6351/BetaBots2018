@@ -25,6 +25,7 @@ import org.usfirst.frc.team6351.robot.commands.GTADrive;
 import org.usfirst.frc.team6351.robot.subsystems.BallCollector;
 import org.usfirst.frc.team6351.robot.subsystems.Climber;
 import org.usfirst.frc.team6351.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team6351.robot.subsystems.LightRing;
 import org.usfirst.frc.team6351.robot.subsystems.Pneumatics;
 import org.usfirst.frc.team6351.robot.subsystems.Sensors;
 import org.usfirst.frc.team6351.robot.subsystems.SparkControllers;
@@ -56,6 +57,7 @@ public class Robot extends IterativeRobot {
 	public static final SparkControllers sparks = new SparkControllers();
 	public static final BallCollector ballintake = new BallCollector();
 	public static final Climber climber = new Climber();
+	public static final LightRing ring = new LightRing();
 	public static OI oi;
 
     Command autonomousStart;

@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team6351.robot.commands.ActivateBothCylinders;
+import org.usfirst.frc.team6351.robot.commands.ActivateLightRing;
 import org.usfirst.frc.team6351.robot.commands.ActivateShooter;
 import org.usfirst.frc.team6351.robot.commands.ActivateBallCollector;
 import org.usfirst.frc.team6351.robot.commands.EvacuateBallCollector;
@@ -36,6 +37,7 @@ public class OI {
 	
 	public Button joystick1 = new JoystickButton(flightstick1, RobotMap.Joy_Button_1);
 	public Button joystick3 = new JoystickButton(flightstick1, RobotMap.Joy_Button_3);
+	public Button joystick7 = new JoystickButton(flightstick1, RobotMap.Joy_Button_7);
 	public Button joystick11 = new JoystickButton(flightstick1, RobotMap.Joy_Button_11);
 	public Button joystick10 = new JoystickButton(flightstick1, RobotMap.Joy_Button_10);
 	public Button joystick12 = new JoystickButton(flightstick1, RobotMap.Joy_Button_12);
@@ -46,6 +48,8 @@ public class OI {
 		joystick1.whileHeld(new ActivateShooter());
 		joystick11.toggleWhenPressed(new ActivateBallCollector());
 		joystick12.toggleWhenPressed(new EvacuateBallCollector());
+		joystick7.toggleWhenPressed(new ActivateLightRing());
+		
 		driverLeftBumper.toggleWhenPressed(new InvertRobot());
 		driverRightBumper.whileHeld(new ActivateShooter());
 		driverA.toggleWhenPressed(new ActivateBallCollector());
