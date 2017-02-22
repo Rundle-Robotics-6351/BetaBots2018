@@ -18,7 +18,7 @@ public class ActivateClimber extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.climber.setClimber(1.0);
+    	Robot.climber.setClimber(-1.0);
     	
     }
 
