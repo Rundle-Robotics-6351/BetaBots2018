@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import org.usfirst.frc.team6351.robot.commands.ActivateBothCylinders;
 import org.usfirst.frc.team6351.robot.commands.ActivateClimber;
 import org.usfirst.frc.team6351.robot.commands.ActivateLightRing;
 import org.usfirst.frc.team6351.robot.commands.ActivateShooter;
