@@ -64,6 +64,7 @@ public class Robot extends IterativeRobot {
     Command autonomousStart;
     Command teleopStart;
     SendableChooser<Command> autoMode;
+    SendableChooser<Command> driveMode;
 
 	public static double centerXContour;
 	public static double centerYContour;
@@ -117,6 +118,9 @@ public class Robot extends IterativeRobot {
         
 
 		oi = new OI();
+		
+		//Autonomous Command Selector
+		
 		autoMode = new SendableChooser<Command>();
 		autoMode.addObject("Auto: Turn 90", new AutoTurn(90));
 		autoMode.addObject("Auto: Follow GRIP Contour (Shape)", new AutoFollowContour());
@@ -125,9 +129,13 @@ public class Robot extends IterativeRobot {
 		//autoMode.addObject("Auto: Position 3", new AutoFollowContour());
 		autoMode.addDefault("Auto: DO NOT MOVE", new AutoDoNotMove());
         SmartDashboard.putData("Auto mode", autoMode);
-        //pneumatics.start();
         
+      //Drive Mode Command Selector
         
+       driveMode = new SendableChooser<Command>();
+       driveMode.addObject("Flight Stick Control", new FlightStickDrive());
+       driveMode.addDefault("Two Person GTA Control", new GTADrive());
+       SmartDashboard.putData("Drive Control Mode", driveMode);
     }
 	
 	/**
@@ -177,8 +185,8 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
 
         getGRIP();
-        SmartDashboard.putNumber("AUTO TEXT GRIP X", Robot.centerXContour);
-        System.out.print(Robot.centerXContour);
+        //SmartDashboard.putNumber("AUTO TEXT GRIP X", Robot.centerXContour);
+        //System.out.print(Robot.centerXContour);
         SmartDashboard.putNumber("GyroAngle", sensors.getGyroAngle());
     }
 
@@ -189,7 +197,7 @@ public class Robot extends IterativeRobot {
         // this line or comment it out.
         if (autonomousStart != null) autonomousStart.cancel();
         
-        teleopStart = new FlightStickDrive(); 
+        teleopStart = (Command) driveMode.getSelected(); 
         teleopStart.start();
     }
 
@@ -197,14 +205,7 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        Scheduler.getInstance().run();
-
-        SmartDashboard.putNumber("Left Joystick Y", oi.driver1.getRawAxis(1));
-        SmartDashboard.putNumber("Right Joystick Y", oi.driver1.getRawAxis(3));
-        SmartDashboard.putBoolean("Precision Mode Active", precisionActive);
-        
-        
-        
+        Scheduler.getInstance().run(); 
         SmartDashboard.putNumber("GyroAngle", sensors.getGyroAngle());
         SmartDashboard.putBoolean("INVERTED!", cameraDriveInverted);
         
