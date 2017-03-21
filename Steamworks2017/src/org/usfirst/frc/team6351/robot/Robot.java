@@ -30,6 +30,7 @@ import org.usfirst.frc.team6351.robot.subsystems.Pneumatics;
 import org.usfirst.frc.team6351.robot.subsystems.Sensors;
 import org.usfirst.frc.team6351.robot.subsystems.SparkControllers;
 import org.usfirst.frc.team6351.robot.vision.*;
+import org.usfirst.frc.team6351.robot.autonomous.*;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -119,7 +120,7 @@ public class Robot extends IterativeRobot {
 		autoMode = new SendableChooser<Command>();
 		autoMode.addObject("Auto: Turn 90", new AutoTurn(90));
 		autoMode.addObject("Auto: Follow GRIP Contour (Shape)", new AutoFollowContour());
-		//autoMode.addObject("Auto: Position 1", new AutoFwdSpinComeBack());
+		//autoMode.addObject("Auto: Position 1", new StartStation1());
 		//autoMode.addObject("Auto: Position 2", new AutoTurn(90));
 		//autoMode.addObject("Auto: Position 3", new AutoFollowContour());
 		autoMode.addDefault("Auto: DO NOT MOVE", new AutoDoNotMove());
