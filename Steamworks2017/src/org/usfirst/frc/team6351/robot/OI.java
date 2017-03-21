@@ -24,16 +24,33 @@ import org.usfirst.frc.team6351.robot.commands.InvertRobot;
 
 public class OI {
 	public Joystick driver1 = new Joystick(0);
-	public Joystick driver2 = new Joystick(2);
+	public Joystick controller1 = new Joystick(2);
 	public Joystick flightstick1 = new Joystick(1);
+	
+	// Microsoft Controller for Controller
+	
+	public Button controllerA = new JoystickButton(controller1, RobotMap.Controller1_A_Button);
+	public Button controllerB = new JoystickButton(controller1, RobotMap.Controller1_B_Button);
+	public Button controllerX = new JoystickButton(controller1, RobotMap.Controller1_X_Button);
+	public Button controllerY = new JoystickButton(controller1, RobotMap.Controller1_Y_Button);
+	
+	public Button controllerLeftBumper = new JoystickButton(controller1, RobotMap.Controller1_Left_Bumper);
+	public Button controllerRightBumper = new JoystickButton(controller1, RobotMap.Controller1_Right_Bumper);
+	
+	public Button controllerLeftTrigger = new JoystickButton(controller1, RobotMap.Controller1_Left_Trigger);
+	public Button controllerRightTrigger = new JoystickButton(controller1, RobotMap.Controller1_Right_Trigger);
+
+	// Microsoft Controller for Driver
 	
 	public Button driverA = new JoystickButton(driver1, RobotMap.Controller1_A_Button);
 	public Button driverB = new JoystickButton(driver1, RobotMap.Controller1_B_Button);
 	public Button driverX = new JoystickButton(driver1, RobotMap.Controller1_X_Button);
 	public Button driverY = new JoystickButton(driver1, RobotMap.Controller1_Y_Button);
-	
+		
 	public Button driverLeftBumper = new JoystickButton(driver1, RobotMap.Controller1_Left_Bumper);
 	public Button driverRightBumper = new JoystickButton(driver1, RobotMap.Controller1_Right_Bumper);
+		
+	// Saitek Flight Stick
 	
 	public Button joystick1 = new JoystickButton(flightstick1, RobotMap.Joy_Button_1);
 	public Button joystick3 = new JoystickButton(flightstick1, RobotMap.Joy_Button_3);
@@ -51,20 +68,22 @@ public class OI {
 		joystick7.whileHeld(new ActivateClimber());
 		
 		driverLeftBumper.toggleWhenPressed(new InvertRobot());
-		driverRightBumper.whileHeld(new ActivateShooter());
-		driverA.toggleWhenPressed(new ActivateBallCollector());
-		driverB.toggleWhenPressed(new EvacuateBallCollector());
+		
+		controllerRightTrigger.whileHeld(new ActivateShooter());
+		controllerLeftTrigger.whileHeld(new ActivateClimber());
+		controllerA.toggleWhenPressed(new ActivateBallCollector());
+		controllerB.toggleWhenPressed(new EvacuateBallCollector());
 		
 	}
 	//Method for getting an axis value on the driver joystick
-		public double controller1AxisValue (int axis) {
+		public double controllerDriverAxisValue (int axis) {
 			
 			return driver1.getRawAxis(axis);
 			
 		}
-		public double controller2AxisValue (int axis) {
+		public double controllerControllerAxisValue (int axis) {
 			
-			return driver2.getRawAxis(axis);
+			return controller1.getRawAxis(axis);
 			
 		}
 		public double joystickAxisValue (int axis) {
