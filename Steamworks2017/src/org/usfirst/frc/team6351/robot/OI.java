@@ -50,7 +50,7 @@ public class OI {
 	public Button driverLeftBumper = new JoystickButton(driver1, RobotMap.Controller1_Left_Bumper);
 	public Button driverRightBumper = new JoystickButton(driver1, RobotMap.Controller1_Right_Bumper);
 		
-	// Saitek Flight Stick
+	//Logitech FLight Stick
 	
 	public Button joystick1 = new JoystickButton(flightstick1, RobotMap.Joy_Button_1);
 	public Button joystick3 = new JoystickButton(flightstick1, RobotMap.Joy_Button_3);
