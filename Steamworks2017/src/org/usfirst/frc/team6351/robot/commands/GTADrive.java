@@ -27,9 +27,9 @@ public class GTADrive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
-    	double rightTrigger = Robot.oi.controller1AxisValue(RobotMap.Controller1_Right_Trigger);
-    	double leftTrigger = Robot.oi.controller1AxisValue(RobotMap.Controller1_Left_Trigger);
-    	double leftJoystickXAxis = Robot.oi.controller1AxisValue(RobotMap.Controller1_Left_X_Axis);
+    	double rightTrigger = Robot.oi.controllerDriverAxisValue(RobotMap.Controller1_Right_Trigger);
+    	double leftTrigger = Robot.oi.controllerDriverAxisValue(RobotMap.Controller1_Left_Trigger);
+    	double leftJoystickXAxis = Robot.oi.controllerDriverAxisValue(RobotMap.Controller1_Left_X_Axis);
     	   
     	//Creating motor variables
     	double leftMotors = (rightTrigger - leftTrigger + leftJoystickXAxis)*RobotMap.GTA_Drive_Scaling_Teleop*(-1);
