@@ -29,8 +29,8 @@ public class TankDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double leftSpeed = Robot.oi.controller1AxisValue(RobotMap.Controller1_Left_Y_Axis)*(RobotMap.Tank_Drive_Scaling_Teleop)*(-1);
-    	double rightSpeed = Robot.oi.controller1AxisValue(RobotMap.Controller1_Right_Y_Axis)*(RobotMap.Tank_Drive_Scaling_Teleop);
+    	double leftSpeed = Robot.oi.controllerDriverAxisValue(RobotMap.Controller1_Left_Y_Axis)*(RobotMap.Tank_Drive_Scaling_Teleop)*(-1);
+    	double rightSpeed = Robot.oi.controllerDriverAxisValue(RobotMap.Controller1_Right_Y_Axis)*(RobotMap.Tank_Drive_Scaling_Teleop);
     	
     	Robot.driveTrain.setLeft(leftSpeed);
     	Robot.driveTrain.setRight(rightSpeed);
