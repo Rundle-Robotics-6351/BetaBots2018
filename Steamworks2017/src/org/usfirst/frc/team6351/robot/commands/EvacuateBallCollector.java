@@ -33,13 +33,13 @@ public class EvacuateBallCollector extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.ballintake.setBallCollector(0.0);
-    	Timer.delay(1.0);
+    	Timer.delay(0.5);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
     	Robot.ballintake.setBallCollector(0.0);
-    	Timer.delay(1.0);
+    	Timer.delay(0.5);
     }
 }
