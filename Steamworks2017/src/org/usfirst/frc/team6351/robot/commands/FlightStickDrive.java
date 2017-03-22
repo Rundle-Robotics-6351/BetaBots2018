@@ -100,8 +100,8 @@ public class FlightStickDrive extends Command {
     	Robot.driveTrain.setLeft(leftMotors);
     	Robot.driveTrain.setRight(rightMotors);
     	
-    	SmartDashboard.putNumber("FlighStick LEFT", leftMotors);
-    	SmartDashboard.putNumber("FlighStick RIGHT", rightMotors);
+    	//SmartDashboard.putNumber("FlighStick LEFT", leftMotors);
+    	// SmartDashboard.putNumber("FlighStick RIGHT", rightMotors);
     	
     }
 

@@ -58,8 +58,8 @@ public class GTADrive extends Command {
     	Robot.driveTrain.setLeft(leftMotors);
     	Robot.driveTrain.setRight(rightMotors);
     	
-    	SmartDashboard.putNumber("GTA LEFT", leftMotors);
-    	SmartDashboard.putNumber("GTA RIGHT", rightMotors);
+    	//SmartDashboard.putNumber("GTA LEFT", leftMotors);
+    	//SmartDashboard.putNumber("GTA RIGHT", rightMotors);
     }
 
     // Make this return true when this Command no longer needs to run execute()
