@@ -1,5 +1,6 @@
 package org.usfirst.frc.team6351.robot.autonomous;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import org.usfirst.frc.team6351.robot.commands.*;
 
@@ -10,11 +11,15 @@ public class StartStation2 extends CommandGroup {
 
     public StartStation2() {
     	
-    	addSequential(new AutoDriveStraight(0.6,3));
+    	addSequential(new AutoDriveStraight(0.6,2));
+    	Timer.delay(5);
+    	addSequential(new AutoDriveStraight(-0.6,1));
     	addSequential(new AutoTurn(-90));
-    	addSequential(new AutoDriveStraight(0.6,3));
-    	addSequential(new AutoTurn(-45));
-    	addSequential(new AutoDriveStraight(0.3,2));
+    	addSequential(new AutoDriveStraight(0.6,2));
+    	addSequential(new AutoTurn(90));
+    	addSequential(new AutoDriveStraight(0.6,2));
+    	addSequential(new AutoTurn(-135));
+    	addSequential(new AutoDriveStraight(0.3,1.5));
     	addSequential(new ActivateShooter());
     	// Add Commands here:
         // e.g. addSequential(new Command1());
