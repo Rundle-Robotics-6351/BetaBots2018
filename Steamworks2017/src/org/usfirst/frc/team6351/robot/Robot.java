@@ -122,8 +122,8 @@ public class Robot extends IterativeRobot {
 		//Autonomous Command Selector
 		
 		autoMode = new SendableChooser<Command>();
-		autoMode.addObject("Auto: Turn 90", new AutoTurn(90));
-		autoMode.addObject("Auto: Follow GRIP Contour (Shape)", new AutoFollowContour());
+		//autoMode.addObject("Auto: Turn 90", new AutoTurn(90));
+		//autoMode.addObject("Auto: Follow GRIP Contour (Shape)", new AutoFollowContour());
 		autoMode.addObject("Auto: Position 1 (UNTESTED)", new StartStation1());
 		autoMode.addObject("Auto: Position 2 (UNTESTED)", new StartStation2());
 		autoMode.addObject("Auto: Position 3 (UNTESTED)", new StartStation3());
