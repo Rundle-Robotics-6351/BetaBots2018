@@ -53,6 +53,9 @@ public class RobotMap {
 	public static final int Controller1_Right_Trigger = 3;
 	public static final int Controller1_Left_Trigger = 2;
 	
+	public static final int Controller2_Right_Trigger = 8;
+	public static final int Controller2_Left_Trigger = 7;
+	
 	public static final int Controller1_Right_Bumper = 6;
 	public static final int Controller1_Left_Bumper = 5;
 
@@ -60,6 +63,11 @@ public class RobotMap {
 	public static final int Controller1_B_Button = 2;
 	public static final int Controller1_X_Button = 3;
 	public static final int Controller1_Y_Button = 4;
+	
+	public static final int Controller2_A_Button = 2;
+	public static final int Controller2_B_Button = 3;
+	public static final int Controller2_X_Button = 1;
+	public static final int Controller2_Y_Button = 4;
 	
 	public static final double TELEOP_MAX_ROBOT_SPEED = 0.99;
 	public static final double TELEOP_MIN_ROBOT_SPEED = -0.99;

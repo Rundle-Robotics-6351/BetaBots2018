@@ -29,16 +29,16 @@ public class OI {
 	
 	// Microsoft Controller for Controller
 	
-	public Button controllerA = new JoystickButton(controller1, RobotMap.Controller1_A_Button);
-	public Button controllerB = new JoystickButton(controller1, RobotMap.Controller1_B_Button);
-	public Button controllerX = new JoystickButton(controller1, RobotMap.Controller1_X_Button);
-	public Button controllerY = new JoystickButton(controller1, RobotMap.Controller1_Y_Button);
+	public Button controllerA = new JoystickButton(controller1, RobotMap.Controller2_A_Button);
+	public Button controllerB = new JoystickButton(controller1, RobotMap.Controller2_B_Button);
+	public Button controllerX = new JoystickButton(controller1, RobotMap.Controller2_X_Button);
+	public Button controllerY = new JoystickButton(controller1, RobotMap.Controller2_Y_Button);
 	
 	public Button controllerLeftBumper = new JoystickButton(controller1, RobotMap.Controller1_Left_Bumper);
 	public Button controllerRightBumper = new JoystickButton(controller1, RobotMap.Controller1_Right_Bumper);
 	
-	public Button controllerLeftTrigger = new JoystickButton(controller1, RobotMap.Controller1_Left_Trigger);
-	public Button controllerRightTrigger = new JoystickButton(controller1, RobotMap.Controller1_Right_Trigger);
+	public Button controllerLeftTrigger = new JoystickButton(controller1, RobotMap.Controller2_Left_Trigger);
+	public Button controllerRightTrigger = new JoystickButton(controller1, RobotMap.Controller2_Right_Trigger);
 
 	// Microsoft Controller for Driver
 	
