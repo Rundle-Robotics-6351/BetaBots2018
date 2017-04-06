@@ -7,9 +7,9 @@ import org.usfirst.frc.team6351.robot.commands.*;
 /**
  *
  */
-public class StartStation2 extends CommandGroup {
+public class StartStation2Red extends CommandGroup {
 
-    public StartStation2() {
+    public StartStation2Red() {
     	
     	addSequential(new AutoDriveStraight(0.3,2));
     	Timer.delay(13);
