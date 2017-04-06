@@ -1,4 +1,4 @@
-package org.usfirst.frc.team6351.robot.autonomous;
+package org.usfirst.frc.team6351.robot.autonomousRed;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -7,14 +7,11 @@ import org.usfirst.frc.team6351.robot.commands.*;
 /**
  *
  */
-public class StartStation3Red extends CommandGroup {
+public class StartStation1Red extends CommandGroup {
 
-    public StartStation3Red() {
-    	
+    public StartStation1Red() {
     	addSequential(new AutoDriveStraight(0.4,2));
-//        	addSequential(new AutoTurn(-135));
-//        	addSequential(new AutoDriveStraight(0.3,1));
-//        	addSequential(new ActivateShooter());
+    	
     	// Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
