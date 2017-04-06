@@ -61,11 +61,11 @@ public class OI {
 	
 	public OI() {
 
-		joystick3.toggleWhenPressed(new InvertRobot());
-		joystick1.whileHeld(new ActivateShooter());
-		joystick11.toggleWhenPressed(new ActivateBallCollector());
-		joystick12.toggleWhenPressed(new EvacuateBallCollector());
-		joystick7.whileHeld(new ActivateClimber());
+//		joystick3.toggleWhenPressed(new InvertRobot());
+//		joystick1.whileHeld(new ActivateShooter());
+//		joystick11.toggleWhenPressed(new ActivateBallCollector());
+//		joystick12.toggleWhenPressed(new EvacuateBallCollector());
+//		joystick7.whileHeld(new ActivateClimber());
 		
 		driverLeftBumper.toggleWhenPressed(new InvertRobot());
 		
