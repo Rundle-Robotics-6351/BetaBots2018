@@ -18,7 +18,7 @@ public class ActivateBallCollector extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.ballintake.setBallCollector(0.9);
+    	Robot.ballintake.setBallCollector(1.0);
     	
     }
 
