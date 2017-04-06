@@ -1,5 +1,6 @@
 package org.usfirst.frc.team6351.robot.autonomous;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import org.usfirst.frc.team6351.robot.commands.*;
 
@@ -10,10 +11,19 @@ public class StartStation3 extends CommandGroup {
 
     public StartStation3() {
     	
-    	addSequential(new AutoDriveStraight(0.6,3));
-    	addSequential(new AutoTurn(-135));
-    	addSequential(new AutoDriveStraight(0.3,1));
-    	addSequential(new ActivateShooter());
+    	DriverStation.Alliance color;
+    	color = DriverStation.getInstance().getAlliance();
+    	if (color == DriverStation.Alliance.Blue){
+    		addSequential(new AutoDriveStraight(0.6,3));
+        	addSequential(new AutoTurn(-135));
+        	addSequential(new AutoDriveStraight(0.3,1));
+        	addSequential(new ActivateShooter());
+    	} else if(color == DriverStation.Alliance.Red){
+//    		addSequential(new AutoDriveStraight(0.6,3));
+//        	addSequential(new AutoTurn(-135));
+//        	addSequential(new AutoDriveStraight(0.3,1));
+//        	addSequential(new ActivateShooter());
+    	}
     	// Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
