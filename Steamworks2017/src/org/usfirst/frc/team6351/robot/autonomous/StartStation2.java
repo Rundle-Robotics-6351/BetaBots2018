@@ -12,15 +12,15 @@ public class StartStation2 extends CommandGroup {
     public StartStation2() {
     	
     	addSequential(new AutoDriveStraight(0.6,2));
-    	Timer.delay(5);
-    	addSequential(new AutoDriveStraight(-0.6,1));
-    	addSequential(new AutoTurn(-90));
-    	addSequential(new AutoDriveStraight(0.6,2));
-    	addSequential(new AutoTurn(90));
-    	addSequential(new AutoDriveStraight(0.6,2));
-    	addSequential(new AutoTurn(-135));
-    	addSequential(new AutoDriveStraight(0.3,1.5));
-    	addSequential(new ActivateShooter());
+    	Timer.delay(10);
+//    	addSequential(new AutoDriveStraight(-0.6,1));
+//    	addSequential(new AutoTurn(-90));
+//    	addSequential(new AutoDriveStraight(0.6,2));
+//    	addSequential(new AutoTurn(90));
+//    	addSequential(new AutoDriveStraight(0.6,2));
+//    	addSequential(new AutoTurn(-135));
+//    	addSequential(new AutoDriveStraight(0.3,1.5));
+//    	addSequential(new ActivateShooter());
     	// Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

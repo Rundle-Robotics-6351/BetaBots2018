@@ -15,9 +15,9 @@ public class StartStation3 extends CommandGroup {
     	color = DriverStation.getInstance().getAlliance();
     	if (color == DriverStation.Alliance.Blue){
     		addSequential(new AutoDriveStraight(0.6,3));
-        	addSequential(new AutoTurn(-135));
-        	addSequential(new AutoDriveStraight(0.3,1));
-        	addSequential(new ActivateShooter());
+//        	addSequential(new AutoTurn(-135));
+//        	addSequential(new AutoDriveStraight(0.3,1));
+//        	addSequential(new ActivateShooter());
     	} else if(color == DriverStation.Alliance.Red){
 //    		addSequential(new AutoDriveStraight(0.6,3));
 //        	addSequential(new AutoTurn(-135));
