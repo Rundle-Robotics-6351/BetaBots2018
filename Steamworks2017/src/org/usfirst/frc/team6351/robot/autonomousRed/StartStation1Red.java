@@ -10,7 +10,7 @@ import org.usfirst.frc.team6351.robot.commands.*;
 public class StartStation1Red extends CommandGroup {
 
     public StartStation1Red() {
-    	addSequential(new AutoDriveStraight(0.4,2));
+    	addSequential(new AutoDriveStraight(-0.4,2));
     	
     	// Add Commands here:
         // e.g. addSequential(new Command1());

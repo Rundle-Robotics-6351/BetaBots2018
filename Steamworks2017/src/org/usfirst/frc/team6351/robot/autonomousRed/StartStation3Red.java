@@ -11,7 +11,7 @@ public class StartStation3Red extends CommandGroup {
 
     public StartStation3Red() {
     	
-    	addSequential(new AutoDriveStraight(0.4,2));
+    	addSequential(new AutoDriveStraight(-0.4,2));
 //        	addSequential(new AutoTurn(-135));
 //        	addSequential(new AutoDriveStraight(0.3,1));
 //        	addSequential(new ActivateShooter());
