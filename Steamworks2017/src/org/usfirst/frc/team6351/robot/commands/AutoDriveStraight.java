@@ -27,7 +27,7 @@ public class AutoDriveStraight extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.driveTrain.setLeft(spd);
-    	Robot.driveTrain.setRight((spd+0.05)*-1);
+    	Robot.driveTrain.setRight((spd-0.04)*-1);
     	Timer.delay(tme);
     }
 

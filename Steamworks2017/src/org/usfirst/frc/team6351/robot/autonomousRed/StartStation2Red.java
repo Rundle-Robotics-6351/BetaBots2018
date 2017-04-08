@@ -11,7 +11,7 @@ public class StartStation2Red extends CommandGroup {
 
     public StartStation2Red() {
     	
-    	addSequential(new AutoDriveStraight(-0.2,2));
+    	addSequential(new AutoDriveStraight(-0.2,3.19));
     	Timer.delay(13);
 //    	addSequential(new AutoDriveStraight(-0.6,1));
 //    	addSequential(new AutoTurn(-90));
