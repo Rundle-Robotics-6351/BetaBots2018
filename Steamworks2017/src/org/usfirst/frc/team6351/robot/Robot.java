@@ -20,7 +20,6 @@ import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team6351.robot.commands.AutoFollowContour;
 import org.usfirst.frc.team6351.robot.commands.AutoTurn;
 import org.usfirst.frc.team6351.robot.commands.FlightStickDrive;
-import org.usfirst.frc.team6351.robot.autonomousRed.*;
 import org.usfirst.frc.team6351.robot.commands.AutoDoNotMove;
 import org.usfirst.frc.team6351.robot.commands.GTADrive;
 import org.usfirst.frc.team6351.robot.subsystems.BallCollector;
