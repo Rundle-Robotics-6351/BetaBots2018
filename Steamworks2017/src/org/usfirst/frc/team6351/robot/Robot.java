@@ -72,10 +72,10 @@ public class Robot extends IterativeRobot {
 	public static boolean precisionActive;
 	public static boolean cameraDriveInverted;
 	
-	public static UsbCamera usbCamera1;
-	public static UsbCamera usbCamera2;
-	public static MjpegServer mjpegServer1;
-	public static MjpegServer mjpegServer2;
+//	public static UsbCamera usbCamera1;
+//	public static UsbCamera usbCamera2;
+//	public static MjpegServer mjpegServer1;
+//	public static MjpegServer mjpegServer2;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -88,17 +88,17 @@ public class Robot extends IterativeRobot {
 
     	GRIPContourReport = NetworkTable.getTable("GRIP/ntPinkPaper");
 
-        usbCamera1 = new UsbCamera("USB Camera 0", 0);
-        usbCamera2 = new UsbCamera("USB Camera 1", 1);
-
-        usbCamera1.setResolution(RobotMap.MJPEG_WIDTH, RobotMap.MJPEG_HEIGHT);
-        usbCamera2.setResolution(RobotMap.BACKUPMJPEG_WIDTH, RobotMap.BACKUPMJPEG_HEIGHT);
-        usbCamera1.setFPS(30);
-        usbCamera2.setFPS(20);
-        mjpegServer1 = new MjpegServer("serve_USB Camera 0", 1181);
-        mjpegServer1.setSource(usbCamera1);
-        mjpegServer2 = new MjpegServer("Mjpeg Backup Stream", 1182);
-        mjpegServer2.setSource(usbCamera2);
+//        usbCamera1 = new UsbCamera("USB Camera 0", 0);
+//        usbCamera2 = new UsbCamera("USB Camera 1", 1);
+//
+//        usbCamera1.setResolution(RobotMap.MJPEG_WIDTH, RobotMap.MJPEG_HEIGHT);
+//        usbCamera2.setResolution(RobotMap.BACKUPMJPEG_WIDTH, RobotMap.BACKUPMJPEG_HEIGHT);
+//        usbCamera1.setFPS(30);
+//        usbCamera2.setFPS(20);
+//        mjpegServer1 = new MjpegServer("serve_USB Camera 0", 1181);
+//        mjpegServer1.setSource(usbCamera1);
+//        mjpegServer2 = new MjpegServer("Mjpeg Backup Stream", 1182);
+//        mjpegServer2.setSource(usbCamera2);
 //        MjpegServer mjpegServer2 = new MjpegServer("serve_USB Camera 1", 1182);
 //        mjpegServer2.setSource(usbCamera2);
 
