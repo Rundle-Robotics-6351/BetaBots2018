@@ -24,10 +24,10 @@ public class InvertRobot extends Command {
     	Robot.cameraDriveInverted = true;
     	
     	//MjpegServer mjpegServer1 = new MjpegServer("serve_USB Camera 0", 1181);
-    	Robot.usbCamera2.setResolution(RobotMap.MJPEG_WIDTH, RobotMap.MJPEG_HEIGHT);
-    	Robot.usbCamera1.setResolution(RobotMap.BACKUPMJPEG_WIDTH, RobotMap.BACKUPMJPEG_HEIGHT);
-        Robot.mjpegServer1.setSource(Robot.usbCamera2);
-        Robot.mjpegServer2.setSource(Robot.usbCamera1);
+//    	Robot.usbCamera2.setResolution(RobotMap.MJPEG_WIDTH, RobotMap.MJPEG_HEIGHT);
+//    	Robot.usbCamera1.setResolution(RobotMap.BACKUPMJPEG_WIDTH, RobotMap.BACKUPMJPEG_HEIGHT);
+//        Robot.mjpegServer1.setSource(Robot.usbCamera2);
+//        Robot.mjpegServer2.setSource(Robot.usbCamera1);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -43,10 +43,10 @@ public class InvertRobot extends Command {
     protected void end() {
     	Robot.cameraDriveInverted = false;
 //    	MjpegServer mjpegServer1 = new MjpegServer("serve_USB Camera 0", 1181);
-    	Robot.usbCamera1.setResolution(RobotMap.MJPEG_WIDTH, RobotMap.MJPEG_HEIGHT);
-    	Robot.usbCamera2.setResolution(RobotMap.BACKUPMJPEG_WIDTH, RobotMap.BACKUPMJPEG_HEIGHT);
-    	Robot.mjpegServer1.setSource(Robot.usbCamera1);
-    	Robot.mjpegServer2.setSource(Robot.usbCamera2);
+//    	Robot.usbCamera1.setResolution(RobotMap.MJPEG_WIDTH, RobotMap.MJPEG_HEIGHT);
+//    	Robot.usbCamera2.setResolution(RobotMap.BACKUPMJPEG_WIDTH, RobotMap.BACKUPMJPEG_HEIGHT);
+//    	Robot.mjpegServer1.setSource(Robot.usbCamera1);
+//    	Robot.mjpegServer2.setSource(Robot.usbCamera2);
     }
 
     // Called when another command which requires one or more of the same
@@ -54,9 +54,9 @@ public class InvertRobot extends Command {
     protected void interrupted() {
     	Robot.cameraDriveInverted = false;
 //    	MjpegServer mjpegServer1 = new MjpegServer("serve_USB Camera 0", 1181);
-    	Robot.usbCamera1.setResolution(RobotMap.MJPEG_WIDTH, RobotMap.MJPEG_HEIGHT);
-    	Robot.usbCamera2.setResolution(RobotMap.BACKUPMJPEG_WIDTH, RobotMap.BACKUPMJPEG_HEIGHT);
-    	Robot.mjpegServer1.setSource(Robot.usbCamera1);
-    	Robot.mjpegServer2.setSource(Robot.usbCamera2);
+//    	Robot.usbCamera1.setResolution(RobotMap.MJPEG_WIDTH, RobotMap.MJPEG_HEIGHT);
+//    	Robot.usbCamera2.setResolution(RobotMap.BACKUPMJPEG_WIDTH, RobotMap.BACKUPMJPEG_HEIGHT);
+//    	Robot.mjpegServer1.setSource(Robot.usbCamera1);
+//    	Robot.mjpegServer2.setSource(Robot.usbCamera2);
     }
 }
