@@ -1,15 +1,18 @@
 package org.usfirst.frc.team6351.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team6351.robot.commands.ActivateClimber;
 import org.usfirst.frc.team6351.robot.commands.ActivateLightRing;
 import org.usfirst.frc.team6351.robot.commands.ActivateShooter;
+import org.usfirst.frc.team6351.robot.commands.EnableCompressor;
 import org.usfirst.frc.team6351.robot.commands.ActivateBallCollector;
 import org.usfirst.frc.team6351.robot.commands.EvacuateBallCollector;
 import org.usfirst.frc.team6351.robot.commands.InvertRobot;
+import org.usfirst.frc.team6351.robot.commands.SolenoidsCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -26,6 +29,10 @@ public class OI {
 	public Joystick driver1 = new Joystick(0);
 	public Joystick controller1 = new Joystick(2);
 	public Joystick flightstick1 = new Joystick(1);
+	
+	public Solenoid solenoidone = new Solenoid(0);
+	public Solenoid solenoidtwo = new Solenoid(1);
+	
 	
 	// Microsoft Controller for Controller
 	
@@ -66,6 +73,12 @@ public class OI {
 //		joystick11.toggleWhenPressed(new ActivateBallCollector());
 //		joystick12.toggleWhenPressed(new EvacuateBallCollector());
 //		joystick7.whileHeld(new ActivateClimber());
+		
+		controllerX.whenPressed(new SolenoidsCommand(solenoidone, "extend"));
+		controllerY.whenPressed(new SolenoidsCommand(solenoidone, "retract"));
+		controllerA.whenPressed(new SolenoidsCommand(solenoidtwo, "extend"));
+		controllerB.whenPressed(new SolenoidsCommand(solenoidtwo, "retract"));
+		driverRightBumper.toggleWhenPressed(new EnableCompressor());
 		
 		driverLeftBumper.toggleWhenPressed(new InvertRobot());
 		
