@@ -36,7 +36,7 @@ public class Pneumatics extends Subsystem {
     }
     public void start() {
 		if (Robot.isReal()) {
-			compressor.start();
+//			compressor.start();
 			compressor.setClosedLoopControl(true);
 			
 		}
@@ -59,6 +59,12 @@ public class Pneumatics extends Subsystem {
     	s.set(op);
     }
     //---------------------------------
+    public void startCompressor() {
+    	compressor.start();
+    }
+    public void stopCompressor() {
+    	compressor.stop();
+    }
     public void activateCylinder1(boolean op) {
     	s1.set(op);
     }
