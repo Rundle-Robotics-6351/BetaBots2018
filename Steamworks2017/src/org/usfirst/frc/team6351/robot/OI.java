@@ -79,7 +79,7 @@ public class OI {
 		controllerA.whenPressed(new SolenoidsCommand(solenoidtwo, "extend"));
 		controllerB.whenPressed(new SolenoidsCommand(solenoidtwo, "retract"));
 		driverRightBumper.toggleWhenPressed(new EnableCompressor());
-		
+		 
 		driverLeftBumper.toggleWhenPressed(new InvertRobot());
 		
 		controllerRightTrigger.whileHeld(new ActivateShooter());
