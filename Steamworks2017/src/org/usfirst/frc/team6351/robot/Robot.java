@@ -44,17 +44,13 @@ import edu.wpi.first.wpilibj.vision.VisionThread;
  */
 
 /**
- * Test Master Branch 1
- */
-
-/**
  * Rundle College Team 6351, 2017 Season
  * Programmed in Java by Davis Carlson and Max Gilmour
  * 
  */
 
 /**
- * Test Branch Commit 2
+ * --
  */
 
 public class Robot extends IterativeRobot {
