@@ -30,9 +30,6 @@ public class OI {
 	public Joystick controller1 = new Joystick(2);
 	public Joystick flightstick1 = new Joystick(1);
 	
-	public Solenoid solenoidone = new Solenoid(0);
-	public Solenoid solenoidtwo = new Solenoid(1);
-	
 	
 	// Microsoft Controller for Controller
 	
@@ -74,10 +71,10 @@ public class OI {
 //		joystick12.toggleWhenPressed(new EvacuateBallCollector());
 //		joystick7.whileHeld(new ActivateClimber());
 		
-		controllerX.whenPressed(new SolenoidsCommand(solenoidone, "extend"));
-		controllerY.whenPressed(new SolenoidsCommand(solenoidone, "retract"));
-		controllerA.whenPressed(new SolenoidsCommand(solenoidtwo, "extend"));
-		controllerB.whenPressed(new SolenoidsCommand(solenoidtwo, "retract"));
+		controllerX.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_1, true));
+		controllerY.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_1, false));
+		controllerA.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_2, true));
+		controllerB.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_2, false));
 		driverRightBumper.toggleWhenPressed(new EnableCompressor());
 		 
 		driverLeftBumper.toggleWhenPressed(new InvertRobot());
