@@ -2,7 +2,7 @@ package org.usfirst.frc.team6351.robot.commands;
 
 import org.usfirst.frc.team6351.robot.Robot;
 
-import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -10,25 +10,29 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class SolenoidsCommand extends Command {
 
-	Solenoid oneortwo;
-	String operation;
+	int solenoidId;
+	boolean operation;
 	
-    public SolenoidsCommand(Solenoid whichone, String operationString) {
+    public SolenoidsCommand(int solenoidInit, boolean operationInit) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.pneumatics);
     	
-    	oneortwo = whichone;
-        operation = operationString;
+    	solenoidId = solenoidInit;
+        operation = operationInit;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	if (operation == "extend") {
-    		oneortwo.set(true);
-    	} else if (operation == "retract") {
-    		oneortwo.set(false);
+    	switch (solenoidId) {
+    		case 1:
+    			Robot.pneumatics.activateCylinder1(operation);
+    		case 2:
+    			Robot.pneumatics.activateCylinder2(operation);
+    		default:
+    			DriverStation.reportError("Invalid Solenoid Id", false);
     	}
+    		
     }
 
     // Called repeatedly when this Command is scheduled to run

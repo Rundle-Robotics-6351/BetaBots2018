@@ -20,11 +20,13 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Pneumatics extends Subsystem {
 	Compressor compressor;
-	public Solenoid s1 = new Solenoid(RobotMap.Solenoid_1);
-	public Solenoid s2 = new Solenoid(RobotMap.Solenoid_2);
+	Solenoid s1;
+	Solenoid s2;
 	
 	public Pneumatics(){
 		compressor = new Compressor();
+		s1 = new Solenoid(RobotMap.Solenoid_1);
+		s2 = new Solenoid(RobotMap.Solenoid_2);
 
 	}
     // Put methods for controlling this subsystem
@@ -41,6 +43,11 @@ public class Pneumatics extends Subsystem {
 			
 		}
 	}
+    
+/*
+* Error Functions
+*/
+    
     public boolean getEnabled() {
     	return compressor.enabled();
     }
@@ -54,11 +61,10 @@ public class Pneumatics extends Subsystem {
     	return compressor.getCompressorShortedFault();
     }
     
-    //TESTING METHOD
-    public void activateCylinder(Solenoid s, boolean op) {
-    	s.set(op);
-    }
-    //---------------------------------
+/*
+* Operation Functions
+*/
+    
     public void startCompressor() {
     	compressor.start();
     }
