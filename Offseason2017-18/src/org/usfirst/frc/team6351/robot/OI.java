@@ -1,12 +1,10 @@
 package org.usfirst.frc.team6351.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team6351.robot.commands.ActivateClimber;
-import org.usfirst.frc.team6351.robot.commands.ActivateLightRing;
 import org.usfirst.frc.team6351.robot.commands.ActivateShooter;
 import org.usfirst.frc.team6351.robot.commands.EnableCompressor;
 import org.usfirst.frc.team6351.robot.commands.ActivateBallCollector;
