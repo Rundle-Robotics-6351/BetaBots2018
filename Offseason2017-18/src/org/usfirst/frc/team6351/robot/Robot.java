@@ -17,10 +17,10 @@ import java.io.Console;
 
 import org.opencv.core.Rect;
 import org.opencv.imgproc.Imgproc;
-import org.usfirst.frc.team6351.robot.commands.AutoFollowContour;
-import org.usfirst.frc.team6351.robot.commands.AutoTurn;
+import org.usfirst.frc.team6351.autocommands.AutoDoNotMove;
+import org.usfirst.frc.team6351.autocommands.AutoFollowContour;
+import org.usfirst.frc.team6351.autocommands.AutoTurn;
 import org.usfirst.frc.team6351.robot.commands.FlightStickDrive;
-import org.usfirst.frc.team6351.robot.commands.AutoDoNotMove;
 import org.usfirst.frc.team6351.robot.commands.GTADrive;
 import org.usfirst.frc.team6351.robot.subsystems.BallCollector;
 import org.usfirst.frc.team6351.robot.subsystems.Climber;

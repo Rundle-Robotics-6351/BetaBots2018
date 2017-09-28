@@ -1,13 +1,9 @@
-
-package org.usfirst.frc.team6351.robot.commands;
-
-import edu.wpi.first.wpilibj.command.Command;
+package org.usfirst.frc.team6351.autocommands;
 
 import org.usfirst.frc.team6351.robot.Robot;
 
-/**
- *
- */
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * Rundle College Team 6351, 2017 Season
@@ -15,19 +11,24 @@ import org.usfirst.frc.team6351.robot.Robot;
  * 
  */
 
-public class AutoDoNotMove extends Command {
+public class AutoDriveStraight extends Command {
 
-    public AutoDoNotMove() {
+	double spd, tme;
+	
+    public AutoDriveStraight(double speed, double time) {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.driveTrain);
+        // eg. requires(chassis);
+    	requires(Robot.driveTrain);
+    	spd = speed;
+    	tme = time;
+    	
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	//WARNING: THIS IS A TESTING METHOD ONLY. THE ROBOT SHOULD NOT BE PROGRAMMED TO
-    	//MOVE AT ANY POINT
-    	Robot.driveTrain.setLeft(0);
-    	Robot.driveTrain.setRight(0);
+    	Robot.driveTrain.setLeft(spd);
+    	Robot.driveTrain.setRight((spd-0.04)*-1);
+    	Timer.delay(tme);
     }
 
     // Called repeatedly when this Command is scheduled to run
