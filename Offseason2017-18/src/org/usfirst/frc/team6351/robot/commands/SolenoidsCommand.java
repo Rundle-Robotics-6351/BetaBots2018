@@ -24,13 +24,12 @@ public class SolenoidsCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	switch (solenoidId) {
-    		case 1:
-    			Robot.pneumatics.activateCylinder1(operation);
-    		case 2:
-    			Robot.pneumatics.activateCylinder2(operation);
-    		default:
-    			DriverStation.reportError("Invalid Solenoid Id", false);
+    	
+    	if (solenoidId == 1) {
+    		Robot.pneumatics.activateCylinder1(operation);
+    	}
+    	if (solenoidId == 2) {
+    		Robot.pneumatics.activateCylinder2(operation);
     	}
     		
     }

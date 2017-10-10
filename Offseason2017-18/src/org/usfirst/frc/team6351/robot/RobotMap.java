@@ -41,8 +41,8 @@ public class RobotMap {
 	
 	public static final int Talon_Controller_LightRing = 5;
 	
-	public static final int Solenoid_1 = 4;
-	public static final int Solenoid_2 = 3;
+	public static final int Solenoid_1 = 1;
+	public static final int Solenoid_2 = 2;
 
 	public static final int Controller1_Left_Y_Axis = 1;
 	public static final int Controller1_Right_Y_Axis = 5;

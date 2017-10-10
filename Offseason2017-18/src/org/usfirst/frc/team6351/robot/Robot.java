@@ -1,4 +1,3 @@
-
 package org.usfirst.frc.team6351.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -32,10 +31,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * Rundle College Team 6351, 2017 Season
  * Programmed in Java by Davis Carlson and Max Gilmour
  * 
- */
-
-/**
- * --
  */
 
 public class Robot extends IterativeRobot {

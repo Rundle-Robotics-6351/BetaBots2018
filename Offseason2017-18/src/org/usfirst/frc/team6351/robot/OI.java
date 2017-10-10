@@ -7,9 +7,11 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team6351.robot.commands.ActivateClimber;
 import org.usfirst.frc.team6351.robot.commands.ActivateShooter;
 import org.usfirst.frc.team6351.robot.commands.EnableCompressor;
+//import org.usfirst.frc.team6351.robot.commands.EnableCompressor;
 import org.usfirst.frc.team6351.robot.commands.ActivateBallCollector;
 import org.usfirst.frc.team6351.robot.commands.EvacuateBallCollector;
 import org.usfirst.frc.team6351.robot.commands.InvertRobot;
+//import org.usfirst.frc.team6351.robot.commands.SolenoidsCommand;
 import org.usfirst.frc.team6351.robot.commands.SolenoidsCommand;
 
 /**
@@ -44,10 +46,10 @@ public class OI {
 
 	// Microsoft Controller for Driver
 	
-	public Button driverA = new JoystickButton(driver1, RobotMap.Controller1_A_Button);
-	public Button driverB = new JoystickButton(driver1, RobotMap.Controller1_B_Button);
-	public Button driverX = new JoystickButton(driver1, RobotMap.Controller1_X_Button);
-	public Button driverY = new JoystickButton(driver1, RobotMap.Controller1_Y_Button);
+	public Button driverA = new JoystickButton(driver1, 1);
+	public Button driverB = new JoystickButton(driver1, 2);
+	public Button driverX = new JoystickButton(driver1, 3);
+	public Button driverY = new JoystickButton(driver1, 4);
 		
 	public Button driverLeftBumper = new JoystickButton(driver1, RobotMap.Controller1_Left_Bumper);
 	public Button driverRightBumper = new JoystickButton(driver1, RobotMap.Controller1_Right_Bumper);
@@ -69,10 +71,10 @@ public class OI {
 //		joystick12.toggleWhenPressed(new EvacuateBallCollector());
 //		joystick7.whileHeld(new ActivateClimber());
 		
-		controllerX.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_1, true));
-		controllerY.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_1, false));
-		controllerA.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_2, true));
-		controllerB.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_2, false));
+		driverX.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_1, true));
+		driverY.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_1, false));
+		driverA.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_2, true));
+		driverB.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_2, false));
 		driverRightBumper.toggleWhenPressed(new EnableCompressor());
 		 
 		driverLeftBumper.toggleWhenPressed(new InvertRobot());
