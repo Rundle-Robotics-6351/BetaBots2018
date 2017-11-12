@@ -8,10 +8,7 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 import org.usfirst.frc.team6351.robot.commands.FlightStickDrive;
 import org.usfirst.frc.team6351.robot.commands.GTADrive;
-import org.usfirst.frc.team6351.robot.subsystems.BallCollector;
-import org.usfirst.frc.team6351.robot.subsystems.Climber;
 import org.usfirst.frc.team6351.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team6351.robot.subsystems.LightRing;
 import org.usfirst.frc.team6351.robot.subsystems.Pneumatics;
 import org.usfirst.frc.team6351.robot.subsystems.Sensors;
 import org.usfirst.frc.team6351.robot.subsystems.SparkControllers;
@@ -39,9 +36,6 @@ public class Robot extends IterativeRobot {
 	public static final Pneumatics pneumatics = new Pneumatics();
 	public static final Sensors sensors = new Sensors();
 	public static final SparkControllers sparks = new SparkControllers();
-	public static final BallCollector ballintake = new BallCollector();
-	public static final Climber climber = new Climber();
-	public static final LightRing ring = new LightRing();
 	public static OI oi;
 
     Command autonomousStart;
@@ -53,13 +47,8 @@ public class Robot extends IterativeRobot {
 	public static double centerYContour;
 	NetworkTable GRIPContourReport;
 	
-	public static boolean precisionActive;
-	public static boolean cameraDriveInverted;
-	
 //	public static UsbCamera usbCamera1;
-//	public static UsbCamera usbCamera2;
 //	public static MjpegServer mjpegServer1;
-//	public static MjpegServer mjpegServer2;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -67,24 +56,14 @@ public class Robot extends IterativeRobot {
      */
 	
     public void robotInit() {
-    	precisionActive = false;
-    	cameraDriveInverted = false;
-
     	GRIPContourReport = NetworkTable.getTable("GRIP/ntPinkPaper");
 
 //        usbCamera1 = new UsbCamera("USB Camera 0", 0);
-//        usbCamera2 = new UsbCamera("USB Camera 1", 1);
 //
 //        usbCamera1.setResolution(RobotMap.MJPEG_WIDTH, RobotMap.MJPEG_HEIGHT);
-//        usbCamera2.setResolution(RobotMap.BACKUPMJPEG_WIDTH, RobotMap.BACKUPMJPEG_HEIGHT);
 //        usbCamera1.setFPS(30);
-//        usbCamera2.setFPS(20);
 //        mjpegServer1 = new MjpegServer("serve_USB Camera 0", 1181);
 //        mjpegServer1.setSource(usbCamera1);
-//        mjpegServer2 = new MjpegServer("Mjpeg Backup Stream", 1182);
-//        mjpegServer2.setSource(usbCamera2);
-//        MjpegServer mjpegServer2 = new MjpegServer("serve_USB Camera 1", 1182);
-//        mjpegServer2.setSource(usbCamera2);
 
 //        visionThread = new VisionThread(camera, new GRIPpinkPaper(), pipeline -> {
 //            if (!pipeline.filterContoursOutput().isEmpty()) {
@@ -187,7 +166,6 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run(); 
         SmartDashboard.putNumber("GyroAngle", sensors.getGyroAngle());
-        SmartDashboard.putBoolean("INVERTED!", cameraDriveInverted);
         
     }
     

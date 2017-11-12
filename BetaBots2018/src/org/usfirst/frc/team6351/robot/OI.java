@@ -4,14 +4,6 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import org.usfirst.frc.team6351.robot.commands.ActivateClimber;
-import org.usfirst.frc.team6351.robot.commands.ActivateShooter;
-import org.usfirst.frc.team6351.robot.commands.EnableCompressor;
-//import org.usfirst.frc.team6351.robot.commands.EnableCompressor;
-import org.usfirst.frc.team6351.robot.commands.ActivateBallCollector;
-import org.usfirst.frc.team6351.robot.commands.EvacuateBallCollector;
-import org.usfirst.frc.team6351.robot.commands.InvertRobot;
-//import org.usfirst.frc.team6351.robot.commands.SolenoidsCommand;
 import org.usfirst.frc.team6351.robot.commands.SolenoidsCommand;
 
 /**
@@ -64,25 +56,12 @@ public class OI {
 	public Button joystick12 = new JoystickButton(flightstick1, RobotMap.Joy_Button_12);
 	
 	public OI() {
-
-//		joystick3.toggleWhenPressed(new InvertRobot());
-//		joystick1.whileHeld(new ActivateShooter());
-//		joystick11.toggleWhenPressed(new ActivateBallCollector());
-//		joystick12.toggleWhenPressed(new EvacuateBallCollector());
-//		joystick7.whileHeld(new ActivateClimber());
 		
 		driverX.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_1, true));
 		driverY.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_1, false));
 		driverA.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_2, true));
 		driverB.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_2, false));
-		driverRightBumper.toggleWhenPressed(new EnableCompressor());
-		 
-		driverLeftBumper.toggleWhenPressed(new InvertRobot());
-		
-		controllerRightTrigger.whileHeld(new ActivateShooter());
-		controllerLeftTrigger.whileHeld(new ActivateClimber());
-		controllerA.toggleWhenPressed(new ActivateBallCollector());
-		controllerB.toggleWhenPressed(new EvacuateBallCollector());
+
 		
 	}
 	//Method for getting an axis value on the driver joystick
