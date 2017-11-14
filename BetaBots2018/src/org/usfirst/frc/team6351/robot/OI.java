@@ -18,7 +18,7 @@ import org.usfirst.frc.team6351.robot.commands.SolenoidsCommand;
  * Programmed in Java by Davis Carlson and Max Gilmour
  * 
  */
-
+ 
 public class OI {
 	public Joystick driver1 = new Joystick(0);
 	public Joystick controller1 = new Joystick(2);
