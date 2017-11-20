@@ -17,16 +17,19 @@ public class Shooter extends Subsystem
 	
 	public Shooter()
 	{
+		//Assigns shooter wheel to spot on the PCB.
 		shooterWheel = new Spark(6);
 	}
 	
 	public void fire()
 	{
+		//When this is activated, the motor spins at the same magnitude as set in RobotMap.
 		shooterWheel.set(RobotMap.Spark_Controller_Shooter);
 	}
 	
 	public void stop()
 	{
+		//When this is activated, the motor stops doing stuff.
 		shooterWheel.set(0);
 	}
 	
