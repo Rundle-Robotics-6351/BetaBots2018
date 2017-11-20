@@ -61,24 +61,11 @@ public class Robot extends IterativeRobot {
     	GRIPContourReport = NetworkTable.getTable("GRIP/ntPinkPaper");
 
 //        usbCamera1 = new UsbCamera("USB Camera 0", 0);
-//
 //        usbCamera1.setResolution(RobotMap.MJPEG_WIDTH, RobotMap.MJPEG_HEIGHT);
 //        usbCamera1.setFPS(30);
 //        mjpegServer1 = new MjpegServer("serve_USB Camera 0", 1181);
 //        mjpegServer1.setSource(usbCamera1);
 
-//        visionThread = new VisionThread(camera, new GRIPpinkPaper(), pipeline -> {
-//            if (!pipeline.filterContoursOutput().isEmpty()) {
-//                Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
-//                synchronized (imgLock) {
-//                	centerXContour = r.x + (r.width / 2);
-//                }
-//            } else {
-//            	DriverStation.reportError("No Contours", false);
-//            }
-//            
-//        });
-//        visionThread.start();
         
 
 		oi = new OI();
