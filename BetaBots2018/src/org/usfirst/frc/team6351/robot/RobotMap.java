@@ -72,8 +72,8 @@ public class RobotMap {
 	public static final double TELEOP_MIN_ROBOT_SPEED = -0.99;
 	
 
-	public static final int MJPEG_WIDTH = 624;
-	public static final int MJPEG_HEIGHT = 311;
+	public static final int MJPEG_WIDTH = 480;
+	public static final int MJPEG_HEIGHT = 240;
 	
 	//LogitechJoystick
 	
