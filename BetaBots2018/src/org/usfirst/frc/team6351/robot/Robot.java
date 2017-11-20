@@ -135,7 +135,7 @@ public class Robot extends IterativeRobot {
         getGRIP();
         //SmartDashboard.putNumber("AUTO TEXT GRIP X", Robot.centerXContour);
         //System.out.print(Robot.centerXContour);
-        SmartDashboard.putNumber("GyroAngle", sensors.getGyroAngle());
+        SmartDashboard.putNumber("Gyro Angle", sensors.getGyroAngle());
     }
 
     public void teleopInit() {
@@ -154,8 +154,8 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run(); 
-        SmartDashboard.putNumber("GyroAngle", sensors.getGyroAngle());
-        SmartDashboard.putNumber("Servo", servos.getServoPosition());
+        SmartDashboard.putNumber("Gyro Angle", sensors.getGyroAngle());
+        SmartDashboard.putNumber("Servo Position", servos.getServoPosition());
         
     }
     
