@@ -24,7 +24,7 @@ public class Shooter extends Subsystem
 	public void fire()
 	{
 		//When this is activated, the motor spins at the same magnitude as set in RobotMap.
-		shooterWheel.set(RobotMap.Spark_Controller_Shooter);
+		shooterWheel.set(0.7);
 	}
 	
 	public void stop()
