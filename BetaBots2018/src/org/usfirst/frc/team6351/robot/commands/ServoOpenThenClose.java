@@ -24,7 +24,7 @@ public class ServoOpenThenClose extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new ActivateServo(0.95));
-    	addSequential(new ActivateServo(0.05));
+    	addSequential(new ActivateServo(0.51));
+    	addSequential(new ActivateServo(0.01));
     }
 }

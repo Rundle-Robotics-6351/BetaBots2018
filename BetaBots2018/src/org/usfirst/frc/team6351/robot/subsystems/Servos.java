@@ -16,6 +16,7 @@ public class Servos extends Subsystem {
 	
 	public Servos() {
 		 gateServo = new Servo(5);
+		 gateServo.set(0.01);
 	}
 
     public void initDefaultCommand() {
