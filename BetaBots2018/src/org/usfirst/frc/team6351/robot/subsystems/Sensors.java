@@ -1,6 +1,7 @@
 package org.usfirst.frc.team6351.robot.subsystems;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.interfaces.Accelerometer;
 import edu.wpi.first.wpilibj.interfaces.Gyro;
@@ -24,11 +25,13 @@ public class Sensors extends Subsystem {
 
 	public Gyro gyro;
 	public Accelerometer accel;
+	public AnalogInput ultrasonic;
 	
 	public Sensors() {
 		
 		gyro = new ADXRS450_Gyro();
 		accel = new BuiltInAccelerometer();
+		ultrasonic = new AnalogInput(0);
 		
 	}
 	
@@ -45,6 +48,13 @@ public class Sensors extends Subsystem {
     }
     public double getYAccel() {
     	return accel.getY();
+    }
+    public double getUltrasonicDistance() {
+    	// Convert the volts from the function to millivolts
+    double voltstomilivolts = ultrasonic.getVoltage() * 1000;
+    // Convert to inches using scaling factor 9.8mV/inch
+    double distance = voltstomilivolts/9.8;
+    	return distance;
     }
 }
 
