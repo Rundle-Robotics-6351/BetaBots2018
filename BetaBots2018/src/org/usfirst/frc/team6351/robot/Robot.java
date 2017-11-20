@@ -1,5 +1,7 @@
 package org.usfirst.frc.team6351.robot;
 
+import edu.wpi.cscore.MjpegServer;
+import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -51,8 +53,8 @@ public class Robot extends IterativeRobot {
 	public static double centerYContour;
 	NetworkTable GRIPContourReport;
 	
-//	public static UsbCamera usbCamera1;
-//	public static MjpegServer mjpegServer1;
+	public static UsbCamera cameraUnder;
+	public static MjpegServer mjpegServer1;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -60,13 +62,13 @@ public class Robot extends IterativeRobot {
      */
 	
     public void robotInit() {
-    	GRIPContourReport = NetworkTable.getTable("GRIP/ntPinkPaper");
+    	GRIPContourReport = NetworkTable.getTable("GRIP/Yellow");
 
-//        usbCamera1 = new UsbCamera("USB Camera 0", 0);
-//        usbCamera1.setResolution(RobotMap.MJPEG_WIDTH, RobotMap.MJPEG_HEIGHT);
-//        usbCamera1.setFPS(30);
-//        mjpegServer1 = new MjpegServer("serve_USB Camera 0", 1181);
-//        mjpegServer1.setSource(usbCamera1);
+    	cameraUnder = new UsbCamera("USB Camera 0", 0);
+    	cameraUnder.setResolution(RobotMap.MJPEG_WIDTH, RobotMap.MJPEG_HEIGHT);
+    	cameraUnder.setFPS(30);
+        mjpegServer1 = new MjpegServer("serve_USB Camera 0", 1181);
+        mjpegServer1.setSource(cameraUnder);
 
         
 
