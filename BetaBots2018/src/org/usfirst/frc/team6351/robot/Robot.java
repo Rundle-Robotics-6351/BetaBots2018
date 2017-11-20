@@ -13,6 +13,7 @@ import org.usfirst.frc.team6351.robot.subsystems.Pneumatics;
 import org.usfirst.frc.team6351.robot.subsystems.Sensors;
 import org.usfirst.frc.team6351.robot.subsystems.Servos;
 import org.usfirst.frc.team6351.robot.subsystems.SparkControllers;
+import org.usfirst.frc.team6351.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -38,6 +39,7 @@ public class Robot extends IterativeRobot {
 	public static final Sensors sensors = new Sensors();
 	public static final Servos servos = new Servos();
 	public static final SparkControllers sparks = new SparkControllers();
+	public static final Shooter shooter = new Shooter();
 	public static OI oi;
 
     Command autonomousStart;
