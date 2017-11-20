@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.*;
 import org.usfirst.frc.team6351.robot.RobotMap;
 
 /**
- *
+ * Max's super neat shooter subsystem :) this allows a motor to stop and go. That's pretty much it.
  */
 public class Shooter extends Subsystem 
 {

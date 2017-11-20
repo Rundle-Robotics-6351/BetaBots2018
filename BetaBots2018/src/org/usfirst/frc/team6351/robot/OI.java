@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team6351.robot.commands.ActivateServo;
 import org.usfirst.frc.team6351.robot.commands.ServoOpenThenClose;
 import org.usfirst.frc.team6351.robot.commands.SolenoidsCommand;
+import org.usfirst.frc.team6351.robot.commands.ShooterWheel;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -14,7 +15,7 @@ import org.usfirst.frc.team6351.robot.commands.SolenoidsCommand;
  */
 
 /**
- * Rundle College Team 6351, 2016/17 Season
+ * Rundle College Team 6351, 2017/18 Season
  * Programmed in Java by Davis Carlson and Max Gilmour
  * 
  */
@@ -58,6 +59,8 @@ public class OI {
 	public Button joystick12 = new JoystickButton(flightstick1, RobotMap.Joy_Button_12);
 	
 	public OI() {
+		
+		controllerA.whenPressed(new ShooterWheel());
 		
 //		driverX.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_1, true));
 //		driverY.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_1, false));
