@@ -17,7 +17,7 @@ public class Shooter extends Subsystem
 	
 	public Shooter()
 	{
-		
+		shooterWheel = new Spark(6);
 	}
 	
 	public void fire()
