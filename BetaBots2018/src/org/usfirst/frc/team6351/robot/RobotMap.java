@@ -44,26 +44,25 @@ public class RobotMap {
 	public static final int Solenoid_1 = 1;
 	public static final int Solenoid_2 = 2;
 
+	// Microsoft XBox Controller
+	
 	public static final int Controller1_Left_Y_Axis = 1;
 	public static final int Controller1_Right_Y_Axis = 5;
-	
 	public static final int Controller1_Left_X_Axis = 0;
 	public static final int Controller1_Right_X_Axis = 4;
-	
 	public static final int Controller1_Right_Trigger = 3;
 	public static final int Controller1_Left_Trigger = 2;
-	
-	public static final int Controller2_Right_Trigger = 8;
-	public static final int Controller2_Left_Trigger = 7;
-	
 	public static final int Controller1_Right_Bumper = 6;
 	public static final int Controller1_Left_Bumper = 5;
-
 	public static final int Controller1_A_Button = 1;
 	public static final int Controller1_B_Button = 2;
 	public static final int Controller1_X_Button = 3;
-	public static final int Controller1_Y_Button = 4;
+	public static final int Controller1_Y_Button = 4;	
 	
+	// Logitech Generic Controller
+	
+	public static final int Controller2_Right_Trigger = 8;
+	public static final int Controller2_Left_Trigger = 7;
 	public static final int Controller2_A_Button = 2;
 	public static final int Controller2_B_Button = 3;
 	public static final int Controller2_X_Button = 1;

@@ -25,7 +25,7 @@ public class OI {
 	public Joystick flightstick1 = new Joystick(1);
 	
 	
-	// Microsoft Controller for Controller
+	// Logitech Controller for Secondary Driver
 	
 	public Button controllerA = new JoystickButton(controller1, RobotMap.Controller2_A_Button);
 	public Button controllerB = new JoystickButton(controller1, RobotMap.Controller2_B_Button);
@@ -38,7 +38,7 @@ public class OI {
 	public Button controllerLeftTrigger = new JoystickButton(controller1, RobotMap.Controller2_Left_Trigger);
 	public Button controllerRightTrigger = new JoystickButton(controller1, RobotMap.Controller2_Right_Trigger);
 
-	// Microsoft Controller for Driver
+	// Microsoft Controller for Primary Driver
 	
 	public Button driverA = new JoystickButton(driver1, 1);
 	public Button driverB = new JoystickButton(driver1, 2);
@@ -48,7 +48,7 @@ public class OI {
 	public Button driverLeftBumper = new JoystickButton(driver1, RobotMap.Controller1_Left_Bumper);
 	public Button driverRightBumper = new JoystickButton(driver1, RobotMap.Controller1_Right_Bumper);
 		
-	//Logitech FLight Stick
+	//Logitech Flight Stick
 	
 	public Button joystick1 = new JoystickButton(flightstick1, RobotMap.Joy_Button_1);
 	public Button joystick3 = new JoystickButton(flightstick1, RobotMap.Joy_Button_3);
