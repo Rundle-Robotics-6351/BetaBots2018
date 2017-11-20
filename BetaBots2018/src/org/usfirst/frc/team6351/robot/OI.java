@@ -60,7 +60,7 @@ public class OI {
 	
 	public OI() {
 		
-		controllerA.whenPressed(new ShooterWheel());
+		controllerA.whileHeld(new ShooterWheel());
 		
 //		driverX.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_1, true));
 //		driverY.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_1, false));
