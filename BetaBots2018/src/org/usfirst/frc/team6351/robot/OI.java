@@ -67,7 +67,7 @@ public class OI {
 //		driverA.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_2, true));
 //		driverB.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_2, false));
 		
-		driverX.whenPressed(new ServoOpenThenClose());
+		driverX.toggleWhenPressed(new ServoOpenThenClose(0.01,0.51));
 
 		
 	}

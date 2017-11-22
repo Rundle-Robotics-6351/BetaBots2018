@@ -1,30 +1,51 @@
 package org.usfirst.frc.team6351.robot.commands;
 
-import edu.wpi.first.wpilibj.command.CommandGroup;
+import org.usfirst.frc.team6351.robot.Robot;
+
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ServoOpenThenClose extends CommandGroup {
+public class ServoOpenThenClose extends Command {
 
-    public ServoOpenThenClose() {
-        // Add Commands here:
-        // e.g. addSequential(new Command1());
-        //      addSequential(new Command2());
-        // these will run in order.
+	double closedPosition;
+	double openedPosition;
+	
+    public ServoOpenThenClose(double closed, double opened) {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+    	requires(Robot.servos);
+    	
+    	closedPosition = closed;
+    	openedPosition = opened;
 
-        // To run multiple commands at the same time,
-        // use addParallel()
-        // e.g. addParallel(new Command1());
-        //      addSequential(new Command2());
-        // Command1 and Command2 will run in parallel.
+    }
 
-        // A command group will require all of the subsystems that each member
-        // would require.
-        // e.g. if Command1 requires chassis, and Command2 requires arm,
-        // a CommandGroup containing them would require both the chassis and the
-        // arm.
-    	addSequential(new ActivateServo(0.51));
-    	addSequential(new ActivateServo(0.01));
+    // Called just before this Command runs the first time
+    protected void initialize() {
+    	Robot.servos.gateServo.set(openedPosition);
+    }
+
+    // Called repeatedly when this Command is scheduled to run
+    protected void execute() {
+    }
+
+    // Make this return true when this Command no longer needs to run execute()
+    protected boolean isFinished() {
+        	return false;
+    }
+
+    // Called once after isFinished returns true
+    protected void end() {
+    	Robot.servos.gateServo.set(closedPosition);
+    }
+
+    // Called when another command which requires one or more of the same
+    // subsystems is scheduled to run
+    protected void interrupted() {
+    	Robot.servos.gateServo.set(closedPosition);
     }
 }
