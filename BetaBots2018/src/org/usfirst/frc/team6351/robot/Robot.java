@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import org.usfirst.frc.team6351.robot.commands.FlightStickDrive;
 import org.usfirst.frc.team6351.robot.commands.GTADrive;
 import org.usfirst.frc.team6351.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team6351.robot.subsystems.LightRing;
 import org.usfirst.frc.team6351.robot.subsystems.Pneumatics;
 import org.usfirst.frc.team6351.robot.subsystems.Sensors;
 import org.usfirst.frc.team6351.robot.subsystems.Servos;
@@ -42,6 +43,7 @@ public class Robot extends IterativeRobot {
 	public static final Servos servos = new Servos();
 	public static final SparkControllers sparks = new SparkControllers();
 	public static final Shooter shooter = new Shooter();
+	public static final LightRing light = new LightRing();
 	public static OI oi;
 
     Command autonomousStart;

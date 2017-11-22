@@ -1,6 +1,9 @@
 package org.usfirst.frc.team6351.robot.commands;
 
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import org.usfirst.frc.team6351.robot.commands.*;
 
 /**
  *
@@ -25,6 +28,8 @@ public class ServoOpenThenClose extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	addSequential(new ActivateServo(0.51));
+    	DriverStation.reportError("CommandGroup", false);
+    	Timer.delay(1);
     	addSequential(new ActivateServo(0.01));
     }
 }

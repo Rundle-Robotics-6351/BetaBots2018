@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
+import org.usfirst.frc.team6351.robot.commands.ActivateLightRing;
 import org.usfirst.frc.team6351.robot.commands.ActivateServo;
 import org.usfirst.frc.team6351.robot.commands.ServoOpenThenClose;
 import org.usfirst.frc.team6351.robot.commands.SolenoidsCommand;
@@ -67,7 +68,10 @@ public class OI {
 //		driverA.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_2, true));
 //		driverB.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_2, false));
 		
-		driverX.whenPressed(new ServoOpenThenClose());
+		//driverX.whenPressed(new ServoOpenThenClose());
+		driverA.whenPressed(new ActivateServo(0.01));
+		driverY.whenPressed(new ActivateServo(0.51));
+		driverB.toggleWhenPressed(new ActivateLightRing());
 
 		
 	}
