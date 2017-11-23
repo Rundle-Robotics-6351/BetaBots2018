@@ -164,6 +164,7 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber("Gyro Angle", sensors.getGyroAngle());
         SmartDashboard.putNumber("Servo Position", servos.getServoPosition());
         
+        getGRIP();
     }
     
     /**
