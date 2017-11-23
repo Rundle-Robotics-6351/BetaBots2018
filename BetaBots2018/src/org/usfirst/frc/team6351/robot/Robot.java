@@ -88,7 +88,7 @@ public class Robot extends IterativeRobot {
       //Drive Mode Command Selector
         
        driveMode = new SendableChooser<Command>();
-       driveMode.addObject("Flight Stick Control", new FlightStickDrive());
+       //driveMode.addObject("Flight Stick Control", new FlightStickDrive());
        driveMode.addDefault("Two Person GTA Control", new GTADrive());
        SmartDashboard.putData("Drive Control Mode", driveMode);
     }
@@ -203,7 +203,7 @@ public class Robot extends IterativeRobot {
         	centerXContour = 0.0;
         }
         if (dataArrayArea.length > widthPos){
-        	areaContour = dataArrayX[widthPos];
+        	areaContour = dataArrayArea[widthPos];
         }
         if (dataArrayArea.length == 0) {
         	areaContour = 0.0;
@@ -213,7 +213,14 @@ public class Robot extends IterativeRobot {
 		//SmartDashboard.putNumber("The value of centerY is ", Robot.centerYContour);
 		
 		//Showing the value of centerX on the smart dashboard
-		//SmartDashboard.putNumber("The value of centerX is ", Robot.centerXContour);
+		SmartDashboard.putNumber("The value of centerX is ", Robot.centerXContour);
+		SmartDashboard.putNumber("The value of area is ", Robot.areaContour);
+		
+		if (Robot.areaContour / (RobotMap.MJPEG_HEIGHT*RobotMap.MJPEG_WIDTH) > 0.3) {
+			SmartDashboard.putNumber("Area Geater than 30%", 1);
+		} else {
+			SmartDashboard.putNumber("Area Geater than 30%", 0);
+		}
     }
 
 }
