@@ -63,7 +63,7 @@ public class AutoDriveToContour extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     		if (offset >= -3 && offset <= 3) {
-    			if (area / (RobotMap.MJPEG_HEIGHT*RobotMap.MJPEG_WIDTH) > 0.5) {
+    			if (area / (RobotMap.MJPEG_HEIGHT*RobotMap.MJPEG_WIDTH) > 0.3) {
     				Robot.driveTrain.setLeft(0.5);
         			Robot.driveTrain.setRight(-0.5);
         			

@@ -19,7 +19,7 @@ public class LightRing extends Subsystem
 	
 	public void on()
 	{
-		lightRing.set(0.7);
+		lightRing.set(-0.7);
 	}
 	
 	public void off()
