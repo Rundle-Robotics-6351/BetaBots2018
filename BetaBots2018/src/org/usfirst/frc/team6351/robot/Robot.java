@@ -65,7 +65,7 @@ public class Robot extends IterativeRobot {
      */
 	
     public void robotInit() {
-    	GRIPContourReport = NetworkTable.getTable("GRIP/Yellow");
+    	GRIPContourReport = NetworkTable.getTable("GRIP/HexContour");
 
     	cameraUnder = new UsbCamera("USB Camera 0", 0);
     	cameraUnder.setResolution(RobotMap.MJPEG_WIDTH, RobotMap.MJPEG_HEIGHT);
