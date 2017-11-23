@@ -27,6 +27,7 @@ public class AutoDriveStraightUntilContour extends Command {
     protected void initialize() {
     		Robot.driveTrain.setLeft(spd);
     		Robot.driveTrain.setRight(-spd);
+    		
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -37,6 +38,9 @@ public class AutoDriveStraightUntilContour extends Command {
     protected boolean isFinished() {
     	double xPosition = Robot.centerXContour;  
     		if (xPosition == 0) {
+    			if (Timer.getMatchTime() > 5.0) {
+    				return false;
+    			}
     			return false;
     		}
     		else {
