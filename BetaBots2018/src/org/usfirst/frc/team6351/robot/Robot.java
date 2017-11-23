@@ -53,6 +53,7 @@ public class Robot extends IterativeRobot {
 
 	public static double centerXContour;
 	public static double centerYContour;
+	public static double areaContour;
 	NetworkTable GRIPContourReport;
 	
 	public static UsbCamera cameraUnder;
@@ -175,11 +176,13 @@ public class Robot extends IterativeRobot {
     public void getGRIP() {
     	double[] yValue = new double[0];
     	double[] xValue = new double[0];
+    	double[] areaValue = new double[0];
     	double[] widthValue = new double[0];
     	
     	int widthPos = 0;
     	double[] dataArrayY = GRIPContourReport.getNumberArray("centerY", yValue);
     	double[] dataArrayX = GRIPContourReport.getNumberArray("centerX", xValue);
+    	double[] dataArrayArea = GRIPContourReport.getNumberArray("area", areaValue);
     	double[] dataArrayWidth = GRIPContourReport.getNumberArray("width", widthValue);
     	//System.out.print(dataArrayX.length);
     	for(int i = 0; i < dataArrayWidth.length; i++){
@@ -197,6 +200,12 @@ public class Robot extends IterativeRobot {
         }
         if (dataArrayX.length == 0) {
         	centerXContour = 0.0;
+        }
+        if (dataArrayArea.length > widthPos){
+        	areaContour = dataArrayX[widthPos];
+        }
+        if (dataArrayArea.length == 0) {
+        	areaContour = 0.0;
         }
         //System.out.print(Robot.centerXContour);
 		//Showing the value of centerY on the smart dashboard

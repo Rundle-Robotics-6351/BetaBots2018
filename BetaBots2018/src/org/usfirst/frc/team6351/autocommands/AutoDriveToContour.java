@@ -1,18 +1,25 @@
 package org.usfirst.frc.team6351.autocommands;
 
 import org.usfirst.frc.team6351.robot.Robot;
+import org.usfirst.frc.team6351.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Rundle College Team 6351, 2017/18 Season
+ * Programmed in Java by Davis Carlson
+ * 
  */
-public class AutoStopOnColor extends Command {
+
+public class AutoDriveToContour extends Command {
 
 	double xPosition;
-	double centerX = 240;
+	double area;
+	double centerX = RobotMap.MJPEG_WIDTH/2;
+	double offset;
 	
-    public AutoStopOnColor() {
+    public AutoDriveToContour() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveTrain);
@@ -25,49 +32,65 @@ public class AutoStopOnColor extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     		xPosition = Robot.centerXContour;
-    	
-    	double distance = centerX - xPosition;
+    		area = Robot.areaContour;
+    		offset = centerX - xPosition;
     
     	if (xPosition != 0) {
-    		if (distance < 0.0 && distance > -120) {
+    		if (offset < 0.0 && offset > -RobotMap.MJPEG_WIDTH/4) {
         		Robot.driveTrain.setLeft(-0.1);
         		Robot.driveTrain.setRight(-0.1);
         	} 
-        	if (distance < 0.0 && distance < -120) {
+        	if (offset < 0.0 && offset < -RobotMap.MJPEG_WIDTH/4) {
         		Robot.driveTrain.setLeft(-0.3);
         		Robot.driveTrain.setRight(-0.3);
         	}
-        	if (distance > 0.0 && distance < 120) {
+        	if (offset > 0.0 && offset < RobotMap.MJPEG_WIDTH/4) {
         		Robot.driveTrain.setLeft(0.1);
         		Robot.driveTrain.setRight(0.1);
         	} 
-        	if (distance > 0.0 && distance > 120) {
+        	if (offset > 0.0 && offset > RobotMap.MJPEG_WIDTH/4) {
         		Robot.driveTrain.setLeft(0.3);
         		Robot.driveTrain.setRight(0.3);
         	}
         	
-        	if (distance >= -5 && distance <= 5) {
-        		Robot.driveTrain.setLeft(0);
-        		Robot.driveTrain.setRight(0);
+        	if (offset >= -3 && offset <= 3) {
+        		Robot.driveTrain.setLeft(0.5);
+        		Robot.driveTrain.setRight(-0.5);
         	}
     	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    		if (offset >= -3 && offset <= 3) {
+    			if (area / (RobotMap.MJPEG_HEIGHT*RobotMap.MJPEG_WIDTH) > 0.5) {
+    				Robot.driveTrain.setLeft(0.5);
+        			Robot.driveTrain.setRight(-0.5);
+        			
+        			Timer.delay(1);
+        			
+        			Robot.driveTrain.setLeft(0);
+        			Robot.driveTrain.setRight(0);
+        			
+        			return true;
+    			} else {
+    				return false;
+    			}
+    		} else {
+    			return false;
+    		}
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.driveTrain.setLeft(0);
+    		Robot.driveTrain.setLeft(0);
 		Robot.driveTrain.setRight(0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.driveTrain.setLeft(0);
+    		Robot.driveTrain.setLeft(0);
 		Robot.driveTrain.setRight(0);
     }
 }

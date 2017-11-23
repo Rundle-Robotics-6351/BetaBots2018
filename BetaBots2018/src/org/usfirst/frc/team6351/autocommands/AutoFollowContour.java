@@ -5,12 +5,8 @@ import org.usfirst.frc.team6351.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
- */
-
-/**
- * Rundle College Team 6351, 2017 Season
- * Programmed in Java by Davis Carlson and Max Gilmour
+ * Rundle College Team 6351, 2017/18 Season
+ * Programmed in Java by Davis Carlson
  * 
  */
 
