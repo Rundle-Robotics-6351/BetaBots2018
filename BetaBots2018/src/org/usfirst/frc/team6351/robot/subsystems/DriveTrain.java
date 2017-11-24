@@ -4,6 +4,7 @@ package org.usfirst.frc.team6351.robot.subsystems;
 import org.usfirst.frc.team6351.robot.Robot;
 import org.usfirst.frc.team6351.robot.RobotMap;
 import org.usfirst.frc.team6351.robot.commands.FlightStickDrive;
+import org.usfirst.frc.team6351.robot.commands.GTADrive;
 
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -24,15 +25,15 @@ public class DriveTrain extends Subsystem {
     // here. Call these from Commands.
 	
 	//Left Motors
-    VictorSP frontLeft = new VictorSP(RobotMap.Motor_Front_Left);
-    VictorSP backLeft = new VictorSP(RobotMap.Motor_Back_Left);
+    VictorSP frontLeft = new VictorSP(1);
+    VictorSP backLeft = new VictorSP(2);
     //Right Motors
-    VictorSP frontRight = new VictorSP(RobotMap.Motor_Front_Right);
-    VictorSP backRight = new VictorSP(RobotMap.Motor_Back_Right);
+    VictorSP frontRight = new VictorSP(3);
+    VictorSP backRight = new VictorSP(4);
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        setDefaultCommand(new FlightStickDrive());
+        setDefaultCommand(new GTADrive());
     }
     public void setLeft (double speed) {
     		frontLeft.set(speed);
