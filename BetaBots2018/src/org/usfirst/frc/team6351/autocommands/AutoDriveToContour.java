@@ -37,37 +37,37 @@ public class AutoDriveToContour extends Command {
     
     	if (xPosition != 0) {
     		if (offset < 0.0 && offset > -RobotMap.MJPEG_WIDTH/4) {
-        		Robot.driveTrain.setLeft(-0.1);
-        		Robot.driveTrain.setRight(-0.1);
-        	} 
-        	if (offset < 0.0 && offset < -RobotMap.MJPEG_WIDTH/4) {
-        		Robot.driveTrain.setLeft(-0.3);
-        		Robot.driveTrain.setRight(-0.3);
-        	}
-        	if (offset > 0.0 && offset < RobotMap.MJPEG_WIDTH/4) {
         		Robot.driveTrain.setLeft(0.1);
         		Robot.driveTrain.setRight(0.1);
         	} 
+        	if (offset < 0.0 && offset < -RobotMap.MJPEG_WIDTH/4) {
+        		Robot.driveTrain.setLeft(0.1);
+        		Robot.driveTrain.setRight(0.1);
+        	}
+        	if (offset > 0.0 && offset < RobotMap.MJPEG_WIDTH/4) {
+        		Robot.driveTrain.setLeft(-0.1);
+        		Robot.driveTrain.setRight(-0.1);
+        	} 
         	if (offset > 0.0 && offset > RobotMap.MJPEG_WIDTH/4) {
-        		Robot.driveTrain.setLeft(0.3);
-        		Robot.driveTrain.setRight(0.3);
+        		Robot.driveTrain.setLeft(-0.1);
+        		Robot.driveTrain.setRight(-0.1);
         	}
         	
-        	if (offset >= -3 && offset <= 3) {
-        		Robot.driveTrain.setLeft(0.5);
-        		Robot.driveTrain.setRight(-0.5);
+        	if (offset >= -7 && offset <= 7) {
+        		Robot.driveTrain.setLeft(0);
+        		Robot.driveTrain.setRight(0);
         	}
     	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    		if (offset >= -3 && offset <= 3) {
-    			if (area / (RobotMap.MJPEG_HEIGHT*RobotMap.MJPEG_WIDTH) > 0.3) {
-    				Robot.driveTrain.setLeft(0.5);
-        			Robot.driveTrain.setRight(-0.5);
+    		if (offset >= -7 && offset <= 7) {
+    			if (area / (RobotMap.MJPEG_HEIGHT*RobotMap.MJPEG_WIDTH) > 0.2) {
+    				Robot.driveTrain.setLeft(-0.3);
+        			Robot.driveTrain.setRight(0.3);
         			
-        			Timer.delay(1);
+        			Timer.delay(0.4);
         			
         			Robot.driveTrain.setLeft(0);
         			Robot.driveTrain.setRight(0);

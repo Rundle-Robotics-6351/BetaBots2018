@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
+import org.usfirst.frc.team6351.autocommands.AutoDriveToContour;
 import org.usfirst.frc.team6351.robot.commands.FlightStickDrive;
 import org.usfirst.frc.team6351.robot.commands.GTADrive;
 import org.usfirst.frc.team6351.robot.subsystems.DriveTrain;
@@ -69,7 +70,7 @@ public class Robot extends IterativeRobot {
 
     	cameraUnder = new UsbCamera("USB Camera 0", 0);
     	cameraUnder.setResolution(RobotMap.MJPEG_WIDTH, RobotMap.MJPEG_HEIGHT);
-    	cameraUnder.setFPS(30);
+    	cameraUnder.setFPS(60);
         mjpegServer1 = new MjpegServer("serve_USB Camera 0", 1181);
         mjpegServer1.setSource(cameraUnder);
 
@@ -82,7 +83,7 @@ public class Robot extends IterativeRobot {
 		autoMode = new SendableChooser<Command>();
 		//autoMode.addObject("Auto: Turn 90", new AutoTurn(90));
 		//autoMode.addObject("Auto: Follow GRIP Contour (Shape)", new AutoFollowContour());
-		//autoMode.addDefault("Auto: DO NOT MOVE", new AutoDoNotMove());
+		autoMode.addDefault("Auto: Drive Till Yellow 20%", new AutoDriveToContour());
         SmartDashboard.putData("Auto mode", autoMode);
         
       //Drive Mode Command Selector
@@ -216,7 +217,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("The value of centerX is ", Robot.centerXContour);
 		SmartDashboard.putNumber("The value of area is ", Robot.areaContour);
 		
-		if (Robot.areaContour / (RobotMap.MJPEG_HEIGHT*RobotMap.MJPEG_WIDTH) > 0.3) {
+		if (Robot.areaContour / (RobotMap.MJPEG_HEIGHT*RobotMap.MJPEG_WIDTH) > 0.2) {
 			SmartDashboard.putNumber("Area Geater than 30%", 1);
 		} else {
 			SmartDashboard.putNumber("Area Geater than 30%", 0);
