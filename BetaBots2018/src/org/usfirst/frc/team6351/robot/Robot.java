@@ -90,6 +90,8 @@ public class Robot extends IterativeRobot {
        driveMode.addObject("Flight Stick Control", new FlightStickDrive());
        driveMode.addDefault("Two Person GTA Control", new GTADrive());
        SmartDashboard.putData("Drive Control Mode", driveMode);
+       
+       servos.gateServo.set(0.90);
     }
 	
 	/**
