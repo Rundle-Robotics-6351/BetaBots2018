@@ -8,6 +8,9 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
+import org.opencv.core.Rect;
+import org.opencv.imgproc.Imgproc;
+import org.usfirst.frc.team6351.grip.RedContour;
 import org.usfirst.frc.team6351.robot.commands.FlightStickDrive;
 import org.usfirst.frc.team6351.robot.commands.GTADrive;
 import org.usfirst.frc.team6351.robot.subsystems.DriveTrain;
@@ -20,6 +23,7 @@ import org.usfirst.frc.team6351.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.vision.VisionThread;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -58,6 +62,13 @@ public class Robot extends IterativeRobot {
 	
 	public static UsbCamera cameraUnder;
 	public static MjpegServer mjpegServer1;
+	
+	private VisionThread visionThread;
+	private final Object imgLock = new Object();
+	private double centerXPipeline;
+	private double areaPipeline;
+	public double centerXValue;
+	public double areaValue;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -65,7 +76,9 @@ public class Robot extends IterativeRobot {
      */
 	
     public void robotInit() {
-    	GRIPContourReport = NetworkTable.getTable("GRIP/HexContour");
+		oi = new OI();
+		
+		GRIPContourReport = NetworkTable.getTable("GRIP/HexContour");
 
     	cameraUnder = new UsbCamera("USB Camera 0", 0);
     	cameraUnder.setResolution(RobotMap.MJPEG_WIDTH, RobotMap.MJPEG_HEIGHT);
@@ -73,10 +86,17 @@ public class Robot extends IterativeRobot {
         mjpegServer1 = new MjpegServer("serve_USB Camera 0", 1181);
         mjpegServer1.setSource(cameraUnder);
 
+        visionThread = new VisionThread(cameraUnder, new RedContour(), pipeline -> {
+            if (!pipeline.filterContoursOutput().isEmpty()) {
+                Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
+                synchronized (imgLock) {
+                	centerXPipeline = r.x + (r.width / 2);
+                	areaPipeline = r.area();
+                }
+            }
+        });
+        visionThread.start();
         
-
-		oi = new OI();
-		
 		//Autonomous Command Selector
 		
 		autoMode = new SendableChooser<Command>();
@@ -117,17 +137,6 @@ public class Robot extends IterativeRobot {
 	 */
     public void autonomousInit() {
     	autonomousStart = (Command) autoMode.getSelected();
-        
-		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
-		switch(autoSelected) {
-		case "My Auto":
-			autonomousCommand = new MyAutoCommand();
-			break;
-		case "Default Auto":
-		default:
-			autonomousCommand = new ExampleCommand();
-			break;
-		} */
     	
     	// schedule the autonomous command (example)
         if (autonomousStart != null) autonomousStart.start();
@@ -138,11 +147,14 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
-
         getGRIP();
         //SmartDashboard.putNumber("AUTO TEXT GRIP X", Robot.centerXContour);
-        //System.out.print(Robot.centerXContour);
         SmartDashboard.putNumber("Gyro Angle", sensors.getGyroAngle());
+        
+        synchronized (imgLock) {
+            centerXValue = this.centerXPipeline;
+            areaValue = this.areaPipeline;
+        }
     }
 
     public void teleopInit() {
@@ -216,11 +228,11 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("The value of centerX is ", Robot.centerXContour);
 		SmartDashboard.putNumber("The value of area is ", Robot.areaContour);
 		
-		if (Robot.areaContour / (RobotMap.MJPEG_HEIGHT*RobotMap.MJPEG_WIDTH) > 0.3) {
-			SmartDashboard.putNumber("Area Geater than 30%", 1);
-		} else {
-			SmartDashboard.putNumber("Area Geater than 30%", 0);
-		}
+//		if (Robot.areaContour / (RobotMap.MJPEG_HEIGHT*RobotMap.MJPEG_WIDTH) > 0.3) {
+//			SmartDashboard.putNumber("Area Geater than 30%", 1);
+//		} else {
+//			SmartDashboard.putNumber("Area Geater than 30%", 0);
+//		}
     }
 
 }
