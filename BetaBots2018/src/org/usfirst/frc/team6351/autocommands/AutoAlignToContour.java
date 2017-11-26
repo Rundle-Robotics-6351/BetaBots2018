@@ -1,6 +1,7 @@
 package org.usfirst.frc.team6351.autocommands;
 
 import org.usfirst.frc.team6351.robot.Robot;
+import org.usfirst.frc.team6351.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -10,16 +11,18 @@ import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * Rundle College Team 6351, 2017 Season
- * Programmed in Java by Davis Carlson and Max Gilmour
+ * Programmed in Java by Davis Carlson
  * 
  */
 
-public class AutoFollowContour extends Command {
+public class AutoAlignToContour extends Command {
 
 	double xPosition;
 	double centerX = 240;
+	double offset;
 	
-    public AutoFollowContour() {
+	
+    public AutoAlignToContour() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveTrain);
@@ -32,28 +35,27 @@ public class AutoFollowContour extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	xPosition = Robot.centerXContour;
-    	
-    	double distance = centerX - xPosition;
+    	offset = centerX - xPosition;
     
     	if (xPosition != 0) {
-    		if (distance < 0.0 && distance > -120) {
-        		Robot.driveTrain.setLeft(-0.1);
-        		Robot.driveTrain.setRight(-0.1);
-        	} 
-        	if (distance < 0.0 && distance < -120) {
-        		Robot.driveTrain.setLeft(-0.3);
-        		Robot.driveTrain.setRight(-0.3);
-        	}
-        	if (distance > 0.0 && distance < 120) {
+    		if (offset < 0.0 && offset > -RobotMap.MJPEG_WIDTH/4) {
         		Robot.driveTrain.setLeft(0.1);
         		Robot.driveTrain.setRight(0.1);
         	} 
-        	if (distance > 0.0 && distance > 120) {
-        		Robot.driveTrain.setLeft(0.3);
-        		Robot.driveTrain.setRight(0.3);
+        	if (offset < 0.0 && offset < -RobotMap.MJPEG_WIDTH/4) {
+        		Robot.driveTrain.setLeft(0.1);
+        		Robot.driveTrain.setRight(0.1);
+        	}
+        	if (offset > 0.0 && offset < RobotMap.MJPEG_WIDTH/4) {
+        		Robot.driveTrain.setLeft(-0.1);
+        		Robot.driveTrain.setRight(-0.1);
+        	} 
+        	if (offset > 0.0 && offset > RobotMap.MJPEG_WIDTH/4) {
+        		Robot.driveTrain.setLeft(-0.1);
+        		Robot.driveTrain.setRight(-0.1);
         	}
         	
-        	if (distance >= -5 && distance <= 5) {
+        	if (offset >= -3 && offset <= 3) {
         		Robot.driveTrain.setLeft(0);
         		Robot.driveTrain.setRight(0);
         	}
@@ -63,7 +65,11 @@ public class AutoFollowContour extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    	if (offset >= -3 && offset <= 3) {
+    		return true;
+    	} else {
+    		return false;
+    	}
     }
 
     // Called once after isFinished returns true
