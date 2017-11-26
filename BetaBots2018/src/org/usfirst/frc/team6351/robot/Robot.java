@@ -176,6 +176,13 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber("Gyro Angle", sensors.getGyroAngle());
         SmartDashboard.putNumber("Servo Position", servos.getServoPosition());
         
+        synchronized (imgLock) {
+            centerXValue = this.centerXPipeline;
+            areaValue = this.areaPipeline;
+        }
+        
+        SmartDashboard.putNumber("GRIP Pipeline X", centerXValue);
+        SmartDashboard.putNumber("GRIP Pipeline Area", areaValue);
         getGRIP();
     }
     
