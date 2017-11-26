@@ -14,11 +14,15 @@ import edu.wpi.first.wpilibj.command.Command;
 public class AutoDriveStraight extends Command {
 
 	double spd, tme;
+	double startingTime;
+	double startingAngle;
+	double kP = 0.05;
 	
     public AutoDriveStraight(double speed, double time) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveTrain);
+    	requires(Robot.sensors);
     	spd = speed;
     	tme = time;
     	
@@ -26,18 +30,25 @@ public class AutoDriveStraight extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	startingAngle = Robot.sensors.getGyroAngle();
+    	startingTime = Timer.getFPGATimestamp();
+    	
     	Robot.driveTrain.setLeft(spd);
-    	Robot.driveTrain.setRight((spd-0.04)*-1);
-    	Timer.delay(tme);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.driveTrain.setLeft(spd);
+    	Robot.driveTrain.setRight(spd*((Robot.sensors.getGyroAngle()-startingAngle)*kP)*-1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        if ((Timer.getFPGATimestamp() - startingTime) > tme) {
+        	return true;
+        } else {
+        	return false;
+        }
     }
 
     // Called once after isFinished returns true
