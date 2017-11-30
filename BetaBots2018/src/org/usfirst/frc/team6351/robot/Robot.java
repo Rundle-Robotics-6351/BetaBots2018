@@ -157,7 +157,7 @@ public class Robot extends IterativeRobot {
         
         teleopStart = (Command) driveMode.getSelected(); 
         teleopStart.start();
-        Robot.shooter.slowSpeed();
+//        Robot.shooter.slowSpeed();
     }
 
     /**
