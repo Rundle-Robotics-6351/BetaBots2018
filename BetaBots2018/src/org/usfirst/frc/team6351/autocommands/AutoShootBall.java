@@ -1,36 +1,30 @@
-
 package org.usfirst.frc.team6351.autocommands;
+
+import org.usfirst.frc.team6351.robot.Robot;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
-import org.usfirst.frc.team6351.robot.Robot;
-
 /**
  *
  */
+public class AutoShootBall extends Command {
 
-/**
- * Rundle College Team 6351, 2017 Season
- * Programmed in Java by Davis Carlson and Max Gilmour
- * 
- */
-
-public class AutoDoNotMove extends Command {
-
-	double wait;
-	
-    public AutoDoNotMove(double waittime) {
+    public AutoShootBall() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.driveTrain);
-        wait = waittime;
+        // eg. requires(chassis);
+    	requires(Robot.shooter);
+    	requires(Robot.servos);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	//WARNING: THIS IS A TESTING METHOD ONLY. THE ROBOT SHOULD NOT BE PROGRAMMED TO
-    	//MOVE AT ANY POINT
-    	Timer.delay(wait);
+    	Robot.servos.gateServo.set(0.49);
+    	Robot.shooter.fire();
+    	Timer.delay(0.4);
+    	Robot.servos.gateServo.set(0.90);
+    	Timer.delay(1.0);
+    	Robot.shooter.stop();  
     }
 
     // Called repeatedly when this Command is scheduled to run

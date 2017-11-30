@@ -61,14 +61,14 @@ public class OI {
 	
 	public OI() {
 		
-		controllerA.whileHeld(new ShooterWheel());
+		controllerA.toggleWhenPressed(new ShooterWheel());
 		
 //		driverX.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_1, true));
 //		driverY.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_1, false));
 //		driverA.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_2, true));
 //		driverB.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_2, false));
 		
-		driverX.toggleWhenPressed(new ServoOpenThenClose(0.90,0.49));
+		controllerX.toggleWhenPressed(new ServoOpenThenClose(0.90,0.55));
 		driverB.toggleWhenPressed(new ActivateLightRing());
 
 		
@@ -80,7 +80,7 @@ public class OI {
 			
 		}
 		public double controllerControllerAxisValue (int axis) {
-			
+//			if (controller1.getRawAxis(axis) > RobotMap.Deadzone_Minimum)
 			return controller1.getRawAxis(axis);
 			
 		}
@@ -91,7 +91,7 @@ public class OI {
 		}
 		public double joystickPOVAngle (int axis) {
 			
-			return flightstick1.getPOV();
+			return flightstick1.getPOV(); 
 			
 		}
     //// CREATING BUTTONS

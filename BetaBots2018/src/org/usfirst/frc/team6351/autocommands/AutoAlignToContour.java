@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class AutoAlignToContour extends Command {
 
 	double xPosition;
-	double centerX = 240;
+	double centerX = 280;
 	double offset;
 	
 	

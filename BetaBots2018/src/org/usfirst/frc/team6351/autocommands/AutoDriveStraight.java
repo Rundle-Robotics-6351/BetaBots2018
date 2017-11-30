@@ -38,8 +38,9 @@ public class AutoDriveStraight extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.setLeft(spd);
-    	Robot.driveTrain.setRight(spd*((Robot.sensors.getGyroAngle()-startingAngle)*kP)*-1);
+    	Robot.driveTrain.setLeft(spd*-1);
+    	//Robot.driveTrain.setRight(spd*((Robot.sensors.getGyroAngle()-startingAngle)*kP)*-1);
+    	Robot.driveTrain.setRight(spd);
     }
 
     // Make this return true when this Command no longer needs to run execute()

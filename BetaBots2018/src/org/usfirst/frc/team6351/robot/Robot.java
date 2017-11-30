@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
+import org.usfirst.frc.team6351.autocommands.AutoRoutine1;
+import org.usfirst.frc.team6351.autocommands.AutoRoutine2;
 import org.usfirst.frc.team6351.robot.commands.FlightStickDrive;
 import org.usfirst.frc.team6351.robot.commands.GTADrive;
 import org.usfirst.frc.team6351.robot.subsystems.DriveTrain;
@@ -80,6 +82,8 @@ public class Robot extends IterativeRobot {
 		//autoMode.addObject("Auto: Turn 90", new AutoTurn(90));
 		//autoMode.addObject("Auto: Follow GRIP Contour (Shape)", new AutoFollowContour());
 		//autoMode.addDefault("Auto: DO NOT MOVE", new AutoDoNotMove());
+		autoMode.addDefault("Auto: Routine 1", new AutoRoutine1());
+		autoMode.addObject("Auto: Routine 2", new AutoRoutine2());
         SmartDashboard.putData("Auto mode", autoMode);
         
       //Drive Mode Command Selector
@@ -89,7 +93,7 @@ public class Robot extends IterativeRobot {
        driveMode.addDefault("Two Person GTA Control", new GTADrive());
        SmartDashboard.putData("Drive Control Mode", driveMode);
        
-       servos.gateServo.set(0.90);
+       servos.gateServo.set(0.9);
     }
 	
 	/**
