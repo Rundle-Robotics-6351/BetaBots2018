@@ -9,10 +9,10 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  * Max's super neat shooter command :) This spins a wheel when a button is held. That's pretty much it.
  */
-public class ShooterWheel extends Command 
+public class ShooterWheelSlow extends Command 
 {
 
-    public ShooterWheel() {
+    public ShooterWheelSlow() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.shooter);
@@ -22,7 +22,7 @@ public class ShooterWheel extends Command
     protected void initialize() 
     {
     	//When command is initialized, the motor activates
-    	Robot.shooter.fire();
+    	Robot.shooter.slowSpeed();
     }
 
     // Called repeatedly when this Command is scheduled to run

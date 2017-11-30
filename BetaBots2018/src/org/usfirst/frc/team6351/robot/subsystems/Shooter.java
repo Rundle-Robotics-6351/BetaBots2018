@@ -21,11 +21,17 @@ public class Shooter extends Subsystem
 		shooterWheel = new Spark(6);
 	}
 	
-	public void fire()
+	public void slowSpeed()
 	{
 		//When this is activated, the motor spins at the same magnitude as set in RobotMap.
 		shooterWheel.set(0.8);
 	}
+	public void fastSpeed()
+	{
+		//When this is activated, the motor spins at the same magnitude as set in RobotMap.
+		shooterWheel.set(1.0);
+	}
+	
 	
 	public void stop()
 	{

@@ -7,8 +7,9 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team6351.robot.commands.ActivateLightRing;
 import org.usfirst.frc.team6351.robot.commands.ActivateServo;
 import org.usfirst.frc.team6351.robot.commands.ServoOpenThenClose;
+import org.usfirst.frc.team6351.robot.commands.ShooterWheelFast;
 import org.usfirst.frc.team6351.robot.commands.SolenoidsCommand;
-import org.usfirst.frc.team6351.robot.commands.ShooterWheel;
+import org.usfirst.frc.team6351.robot.commands.ShooterWheelSlow;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -61,13 +62,9 @@ public class OI {
 	
 	public OI() {
 		
-		controllerA.toggleWhenPressed(new ShooterWheel());
-		
-//		driverX.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_1, true));
-//		driverY.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_1, false));
-//		driverA.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_2, true));
-//		driverB.whenPressed(new SolenoidsCommand(RobotMap.Solenoid_2, false));
-		
+//		controllerA.toggleWhenPressed(new ShooterWheelSlow());
+		controllerLeftTrigger.toggleWhenPressed(new ShooterWheelSlow());
+		controllerRightTrigger.toggleWhenPressed(new ShooterWheelFast());
 		controllerX.toggleWhenPressed(new ServoOpenThenClose(0.90,0.55));
 		driverB.toggleWhenPressed(new ActivateLightRing());
 
