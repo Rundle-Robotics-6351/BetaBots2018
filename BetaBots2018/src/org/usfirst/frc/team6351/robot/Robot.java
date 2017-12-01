@@ -133,6 +133,7 @@ public class Robot extends IterativeRobot {
 		} */
     	
     	// schedule the autonomous command (example)
+    	servos.gateServo.set(0.9);
         if (autonomousStart != null) autonomousStart.start();
     }
 
@@ -175,6 +176,9 @@ public class Robot extends IterativeRobot {
      */
     public void testPeriodic() {
         LiveWindow.run();
+    }
+    public void teleopEnd() {
+    	
     }
     
     public void getGRIP() {

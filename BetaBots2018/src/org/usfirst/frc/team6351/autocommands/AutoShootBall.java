@@ -20,7 +20,7 @@ public class AutoShootBall extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.servos.gateServo.set(0.49);
-    	Robot.shooter.fire();
+    	Robot.shooter.slowSpeed();
     	Timer.delay(0.4);
     	Robot.servos.gateServo.set(0.90);
     	Timer.delay(1.0);
