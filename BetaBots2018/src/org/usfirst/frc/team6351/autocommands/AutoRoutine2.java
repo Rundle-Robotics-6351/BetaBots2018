@@ -9,13 +9,13 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutoRoutine2 extends CommandGroup {
 
     public AutoRoutine2() {
-    	addSequential(new AutoDriveStraight(0.6, 0.35));
+    	addSequential(new AutoDriveStraight(0.5, 0.37));
     	addSequential(new AutoDoNotMove(2));
-    	addSequential(new AutoTurn(47));
+    	addSequential(new AutoTurn(40));
     	addSequential(new AutoDoNotMove(1));
-    	addSequential(new AutoDriveStraight(0.5, 0.4));
+    	addSequential(new AutoDriveStraight(0.5, 0.29));
     	addSequential(new AutoShootBall());
-    	addSequential(new AutoDriveStraight(-0.5, 0.3));
+//    	addSequential(new AutoDriveStraight(-0.5, 0.20));
     	
     	
         // Add Commands here:

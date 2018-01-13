@@ -24,12 +24,12 @@ public class Shooter extends Subsystem
 	public void slowSpeed()
 	{
 		//When this is activated, the motor spins at the same magnitude as set in RobotMap.
-		shooterWheel.set(0.8);
+		shooterWheel.set(0.625);
 	}
 	public void fastSpeed()
 	{
 		//When this is activated, the motor spins at the same magnitude as set in RobotMap.
-		shooterWheel.set(1.0);
+		shooterWheel.set(0.65);
 	}
 	
 	

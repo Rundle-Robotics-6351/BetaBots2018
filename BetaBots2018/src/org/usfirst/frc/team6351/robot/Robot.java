@@ -82,8 +82,8 @@ public class Robot extends IterativeRobot {
 		//autoMode.addObject("Auto: Turn 90", new AutoTurn(90));
 		//autoMode.addObject("Auto: Follow GRIP Contour (Shape)", new AutoFollowContour());
 		//autoMode.addDefault("Auto: DO NOT MOVE", new AutoDoNotMove());
-		autoMode.addDefault("Auto: Routine 1", new AutoRoutine1());
-		autoMode.addObject("Auto: Routine 2", new AutoRoutine2());
+		autoMode.addObject("Auto: Routine 1", new AutoRoutine1());
+		autoMode.addDefault("Auto: Routine 2", new AutoRoutine2());
         SmartDashboard.putData("Auto mode", autoMode);
         
       //Drive Mode Command Selector

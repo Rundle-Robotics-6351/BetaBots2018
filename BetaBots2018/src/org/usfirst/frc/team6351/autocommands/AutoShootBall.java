@@ -20,11 +20,16 @@ public class AutoShootBall extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.servos.gateServo.set(0.49);
-    	Robot.shooter.slowSpeed();
+    	Robot.shooter.shooterWheel.set(0.68);
     	Timer.delay(0.4);
     	Robot.servos.gateServo.set(0.90);
     	Timer.delay(1.0);
-    	Robot.shooter.stop();  
+    	Robot.servos.gateServo.set(0.49);
+    	Robot.shooter.shooterWheel.set(0.68);
+    	Timer.delay(0.4);
+    	Robot.servos.gateServo.set(0.90);
+    	Timer.delay(1.0);
+    	Robot.shooter.shooterWheel.set(0.0);  
     }
 
     // Called repeatedly when this Command is scheduled to run
